@@ -8,6 +8,11 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from mrf import mrf_hmrf
 
+
+# Script to compare basic method used by the AxonSegmentation Toolbox, Machine Learning methods without postprocessing#
+# and Machine Learning with postprocessing (markov random fields)
+#######################################################################################################################
+
 file = 'Comparaison/results_croped/'
 img = Image.open(file+'Step_2.jpg').convert('L')
 img_basic = preprocessing.binarize(np.array(img), threshold=100)

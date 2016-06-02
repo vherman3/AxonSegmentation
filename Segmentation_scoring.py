@@ -7,6 +7,11 @@ import numpy as np
 
 def segment_score(img, y_true, y_pred, visualization=False, min_area=10):
 
+    """
+    Calculates segmentation score by counting centroid of predicted regions which are or are not into true regions
+    Returns sensitivity (TP/P), errors (FP/P) and diffusion
+    """
+
     h, w = img.shape
     im_true = y_true.reshape(h, w)
     im_pred = y_pred.reshape(h, w)
@@ -60,6 +65,11 @@ def segment_score(img, y_true, y_pred, visualization=False, min_area=10):
 
 
 def rejectOne_score(img, y_true, y_pred, visualization=False, min_area=10, show_diffusion = True):
+    """
+    Calculates segmentation score by keeping an only true centroids as TP.
+    Excess of centroids is counted by diffusion (Excess/P)
+    Returns sensitivity (TP/P), errors (FP/P) and diffusion
+    """
 
     h, w = img.shape
     im_true = y_true.reshape(h, w)
@@ -141,10 +151,3 @@ def rejectOne_score(img, y_true, y_pred, visualization=False, min_area=10, show_
         return [sensitivity, errors, round(diffusion,4)]
     else:
         return [sensitivity, errors]
-
-
-#results = pickle.load(open("test/classification_res13.pkl", "rb"))
-#img = results['img_test']
-#y_true = results['y_true']
-#y_pred = results['y_pred']
-#print rejectOne_score(img, y_true, y_pred, visualization=True)
