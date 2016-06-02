@@ -18,8 +18,7 @@ import matplotlib.pyplot as plt
 from mrf import mrf_hmrf
 
 
-data = pickle.load(open("data/data2.pkl", "rb"))
-
+data = pickle.load(open("data/data.pkl", "rb"))
 img = data['image']
 img = exposure.equalize_hist(img)
 
@@ -29,7 +28,6 @@ X = features(img, 3)
 y = mask.reshape(-1, 1)
 
 h, w = img.shape
-
 test_size = 0.87
 
 img_train = img[:h*(1-test_size), :]
@@ -74,7 +72,7 @@ def sampling(X, y, n_samples, balanced=True):
 
 
 #######################################################################################################################
-#                                                      Features Selection                                             #
+#                                                      Features evaluation                                             #
 #######################################################################################################################
 # n_train_s = 50000
 # n_test_s = 5000
@@ -159,16 +157,6 @@ results['y_true']= y_test
 #
 # with open('test/result_2.pkl', 'wb') as handle:
 #     pickle.dump(results, handle)
-
-#######################################################################################################################
-#                                                      Post-Processing                                               #
-#######################################################################################################################
-
-# img_mrf = mrf_hmrf(results, type='mrf')
-# y_pred_mrf = img_mrf.reshape(-1, 1)
-#
-# img_hmrf = mrf_hmrf(results, type='hmrf')
-# y_pred_hmrf = img_hmrf.reshape(-1, 1)
 
 #######################################################################################################################
 #                                                      Print some scores                                              #
