@@ -13,7 +13,7 @@ from mrf import mrf_hmrf
 # and Machine Learning with postprocessing (markov random fields)
 #######################################################################################################################
 
-file = 'Comparaison/results_croped/'
+file = 'Comparaison/basic_method/'
 img = Image.open(file+'Step_2.jpg').convert('L')
 img_basic = preprocessing.binarize(np.array(img), threshold=100)
 
@@ -39,11 +39,10 @@ y_pred_mrf = img_mrf.reshape(-1, 1)
 img_hmrf = mrf_hmrf(results, type='hmrf')
 y_pred_hmrf = img_hmrf.reshape(-1, 1)
 
+
 #for beta_i in (2, 6):
     #y_pred_mrf = img_mrf.reshape(-1, 1)
     #sensitivity_mrf, errors_mrf, diffusion_mrf = rejectOne_score(img, y_true, y_pred_mrf)
-
-
 
 #######################################################################################################################
 #                                                      Cropping                                                       #

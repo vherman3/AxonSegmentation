@@ -4,7 +4,6 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import pickle
 
-
 file = 'data/'
 
 img = Image.open(file+'image.png').convert('L')
@@ -14,10 +13,10 @@ h, w = img.shape
 im = Image.open(file+'initial_mask.tif').convert('L')
 mask_init = preprocessing.binarize(np.array(im), threshold=100) # Initial axon mask built with AxonSegmentation Toolbox
 
-im = Image.open(file+'rectified_mask2.png').convert('L')
+im = Image.open(file+'add_mask.png').convert('L')
 mask_add = preprocessing.binarize(np.array(im), threshold=100) # Added true positives in the initial mask
 
-im = Image.open(file+'suppress_mask.tif').convert('L')
+im = Image.open(file+'remove_mask.tif').convert('L')
 mask_rem = preprocessing.binarize(np.array(im), threshold=100) # Removed False positive in the initial mask
 
 gt = mask_add + (1-mask_rem) * mask_init # GroundTruth

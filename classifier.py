@@ -32,7 +32,6 @@ class Classifier(BaseEstimator):
         X = self.scaler.transform(X)
         if self.pc:
             X = self.pca.transform(X)
-        # print "Look, the variance is not exactly 1, as expected", np.std(X[:,0])
         return self.clf.predict(X)
 
     def predict_proba(self, X):

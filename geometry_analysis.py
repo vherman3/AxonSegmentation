@@ -17,7 +17,6 @@ def axon_mask(coords, img, transparent=False, display = True):
 
     m = np.zeros((img.shape[0], img.shape[1]))
     m[coords[:, 0], coords[:, 1]] = 1
-
     if display == True :
 
         if transparent:
@@ -70,14 +69,13 @@ h, w = img.shape
 
 i=0
 for x in regions:
-    a = x.area
 
+    a = x.area
     if a == 1:
         continue
 
     p = x.perimeter
     cir = float(4*pi*a)/(p**2)
-
     if p==0:
         continue
 
@@ -98,14 +96,13 @@ features.remove('coordinates')
 print features
 
 scaler = StandardScaler()
-pca = PCA(n_components=4)
-
 scaler.fit(X)
 X = scaler.transform(X)
 
+#pca = PCA(n_components=4)
 #pca.fit(X)
 #X = pca.transform(X)
-#print '----- Clustering : \n PCA components : ', pca.components_
+#print '----- Clustering : \n PCA components : ', pca.components
 
 outliers_fraction = 0.03
 
