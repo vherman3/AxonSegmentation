@@ -17,7 +17,7 @@ test_size = 0.87
 img_basic = img_basic[h*(1-test_size):, :]
 y_pred_basic = img_basic.reshape(-1, 1)
 
-file2 = 'test/'
+file2 = 'results/'
 results = pickle.load(open(file2+"results.pkl", "rb"))
 img = results['img']
 h, w = img.shape
@@ -31,12 +31,12 @@ y_pred = results['y_pred']
 img_mrf = mrf_hmrf(results, type='mrf')
 y_pred_mrf = img_mrf.reshape(-1, 1)
 
-#img_hmrf = mrf_hmrf(results, type='hmrf')
-#y_pred_hmrf = img_hmrf.reshape(-1, 1)
+img_hmrf = mrf_hmrf(results, type='hmrf')
+y_pred_hmrf = img_hmrf.reshape(-1, 1)
 
-for beta_i in (2, 6):
-    y_pred_mrf = img_mrf.reshape(-1, 1)
-    sensitivity_mrf, errors_mrf, diffusion_mrf = rejectOne_score(img, y_true, y_pred_mrf)
+#for beta_i in (2, 6):
+    #y_pred_mrf = img_mrf.reshape(-1, 1)
+    #sensitivity_mrf, errors_mrf, diffusion_mrf = rejectOne_score(img, y_true, y_pred_mrf)
 
 
 
