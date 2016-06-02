@@ -1,2 +1,2 @@
 # AxonSegmentation
-Axon Segmentation in microscopic images based on machine learning
+Axon segmentation from microscopic images and based on machine learning methods.

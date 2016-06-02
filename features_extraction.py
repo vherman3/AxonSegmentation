@@ -11,6 +11,11 @@ from scipy.signal import decimate
 
 
 def filter_bank(img, coeff_resolution):
+    """
+    Calculates the responses of an image to M filters.
+    Returns 2-d array of the vectorial responses
+    """
+
     h, w = img.shape
 
     im = np.reshape(img, (h*w, 1))
@@ -28,13 +33,16 @@ def filter_bank(img, coeff_resolution):
     m3 = np.reshape(ndi.maximum_filter(256-img, size=coeff_resolution*10, mode='constant'), (h*w, 1))
 
     #c = np.reshape(canny(img), (h*w, 1))
-
     s = np.reshape(sobel(img), (h*w, 1))
 
     return np.column_stack((im, e1, e2, e3, g1, g2, g3, m1, m2, m3, s))
 
 
 def features(img, size_patch, coeff_resolution=1.0):
+    """
+    For each pixel of an image, takes filter response into a centered patch.
+    Returns for each pixel a vector of shape (1,n_filters*size_patch)
+    """
 
     h, w = img.shape
     resp = filter_bank(img, coeff_resolution)
