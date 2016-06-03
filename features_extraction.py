@@ -30,7 +30,7 @@ def filter_bank(img, coeff_resolution):
 
     m1 = np.reshape(ndi.maximum_filter(256-img, size=coeff_resolution*2, mode='constant'), (h*w, 1))
     m2 = np.reshape(ndi.maximum_filter(256-img, size=coeff_resolution*4, mode='constant'), (h*w, 1))
-    m3 = np.reshape(ndi.maximum_filter(256-img, size=coeff_resolution*10, mode='constant'), (h*w, 1))
+    m3 = np.reshape(ndi.maximum_filter(256-img, size=coeff_resolution*7, mode='constant'), (h*w, 1))
 
     #c = np.reshape(canny(img), (h*w, 1))
     s = np.reshape(sobel(img), (h*w, 1))

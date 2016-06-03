@@ -11,8 +11,9 @@ from segmentation_scoring import rejectOne_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import accuracy_score
 from tabulate import tabulate
-from visualization import visualize
+import matplotlib.pyplot as plt
 import time
+from pylab import savefig
 
 
 text = '----------REPORT----------'
@@ -35,16 +36,18 @@ mask = data['mask']
 print '--Building sets \n'
 
 h, w = img.shape
-test_size = 0.99
+test_size = 0.85
 text+= '\n\n---Parameters--'
-text+= '\n\n-test_size = %s' % (test_size)
+text+= '\n-test_size = %s' % (test_size)
 
-img_train = img[:h*(1-test_size), :]
-img_test = img[h*(1-test_size):, :]
+img_train = img[:, :w*(1-test_size)]
+mask_train = mask[:,:w*(1-test_size)]
 
+img_test = img[:, w*(1-test_size):]
+mask_test = mask[:, w*(1-test_size):]
 
-mask_train = mask[:h*(1-test_size), :]
-mask_test = mask[h*(1-test_size):, :]
+img_test = img_test[:-200, :-400]
+mask_test = mask_test[:-200, :-400]
 
 X_train = features(img_train, 3)
 X_test = features(img_test, 3)
@@ -65,7 +68,7 @@ y_test = np.ravel(mask_test.reshape(-1, 1))
 
 print '--Training \n'
 
-clf = classifier.Classifier()
+clf = classifier.Classifier(verbose=True)
 
 start = time.clock()
 #clf.fit(X_train_s, y_train_s)
@@ -103,43 +106,70 @@ results['y_pred_mrf'] = y_pred_mrf
 results['y_pred_mrf'] = y_pred_mrf
 
 #######################################################################################################################
-#                                           Scoring and visualization                                                 #
+#                                           Scoring                                                                   #
 #######################################################################################################################
 print '--Evaluating performances \n'
 
 acc_train = accuracy_score(y_train, y_pred_train)
 pre_train = precision_score(y_train, y_pred_train,average=None)
+
 acc_test = accuracy_score(y_test, y_pred)
 pre_test = precision_score(y_test, y_pred, average=None)
-acc_mrf = accuracy_score(y_test, y_pred)
-pre_mrf = precision_score(y_test, y_pred, average=None)
+
+acc_mrf = accuracy_score(y_test, y_pred_mrf)
+pre_mrf = precision_score(y_test, y_pred_mrf, average=None)
 
 score_test = rejectOne_score(img_test, y_test, y_pred, visualization=False, show_diffusion=True, min_area=0)
 score_train = rejectOne_score(img_train, y_train, y_pred_train, visualization=False, show_diffusion=True, min_area=0)
 score_mrf = rejectOne_score(img_test, y_test, y_pred_mrf, visualization=False, show_diffusion=True, min_area=0)
 
 headers = ["set", "accuracy","sensitivity", "errors", "diffusion"]
-table = [["train", acc_test, score_train[0], score_train[1], score_train[2]],
+table = [["test", acc_test, score_train[0], score_train[1], score_train[2]],
         ["train", acc_train, score_test[0], score_test[1], score_test[2]],
         ["mrf test", acc_mrf, score_mrf[0], score_mrf[1], score_mrf[2]]]
 
-subtitle2 = '\n---Scores---\n\n'
+subtitle2 = '\n\n---Scores---\n'
 scores = tabulate(table, headers)
+text = text+subtitle2+scores
+
+#######################################################################################################################
+#                                           Visualization                                                             #
+#######################################################################################################################
+file_number = '_2'
+folder = 'example/resultsPipeline/'
+
+plt.figure(1)
+plt.title('Prediction on test')
+plt.imshow(img_test, cmap=plt.get_cmap('gray'))
+plt.hold(True)
+plt.imshow(y_pred.reshape(img_test.shape[0], img_test.shape[1]), alpha=0.7)
+savefig(folder+'test_prediction'+file_number+'.png')
+
+
+plt.figure(2)
+plt.title('Prediction on train')
+plt.imshow(img_train, cmap=plt.get_cmap('gray'))
+plt.hold(True)
+plt.imshow(y_pred_train.reshape(img_train.shape[0], img_train.shape[1]), alpha=0.7)
+savefig(folder+'train_prediction'+file_number+'.png')
+
+plt.figure(3)
+plt.title('Prediction on test with mrf')
+plt.imshow(img_test, cmap=plt.get_cmap('gray'))
+plt.hold(True)
+plt.imshow(img_mrf, alpha=0.7)
+savefig(folder+'test_prediction_mrf'+file_number+'.png')
 
 #######################################################################################################################
 #                                            Saving                                                                   #
 #######################################################################################################################
 print '\n--Saving results \n'
 
-file_number = '_1'
-folder = 'example/resultsPipeline/'
 with open(folder+'results'+file_number+'.pkl', 'wb') as handle:
      pickle.dump(results, handle)
+
 joblib.dump(clf, folder+'classifiers/'+'clf_'+file_number+'.pkl')
 
-text = text+subtitle2+scores
-
-f = open(folder+'scores'+file_number+'.txt', 'w')
+f = open(folder+'report'+file_number+'.txt', 'w')
 f.write(text)
 f.close()
-

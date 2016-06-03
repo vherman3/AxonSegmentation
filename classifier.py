@@ -5,12 +5,12 @@ from sklearn.decomposition import PCA
 
 
 class Classifier(BaseEstimator):
-    def __init__(self, pc=True, n_components=35, verbose=True, C=1.5, class_weight=None):
+    def __init__(self, pc=True, n_components=35, verbose=False, C=1.5, class_weight=None):
 
         self.n_components = n_components
         self.C = C
         self.class_weight = class_weight
-        self.clf = svm.SVC(kernel='rbf', cache_size=500, C=self.C, class_weight=self.class_weight)
+        self.clf = svm.SVC(kernel='rbf', cache_size=500, C=self.C, class_weight=self.class_weight, verbose=verbose)
         self.scaler = StandardScaler()
         self.pc = pc
 
