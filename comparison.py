@@ -3,7 +3,7 @@ import numpy as np
 from sklearn import preprocessing
 import scipy
 import pickle
-from Segmentation_scoring import segment_score, rejectOne_score
+from segmentation_scoring import segment_score, rejectOne_score
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from mrf import mrf_hmrf

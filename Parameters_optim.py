@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 import random
 from sklearn.utils import shuffle
 import time
-from Segmentation_scoring import segment_score, rejectOne_score
+from segmentation_scoring import segment_score, rejectOne_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import precision_score
 from sklearn import cross_validation
@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 from mrf import mrf_hmrf
 
 
-data = pickle.load(open("data/data.pkl", "rb"))
+data = pickle.load(open("data/groundTruth.pkl", "rb"))
 img = data['image']
 img = exposure.equalize_hist(img)
 
