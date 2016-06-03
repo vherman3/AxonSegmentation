@@ -17,13 +17,13 @@ def visualize(y_true,y_pred,img):
     target_pred = y_pred.reshape(h, w)
     target_true = y_true.reshape(h, w)
 
-    fig1 = plt.figure()
+    fig1 = plt.figure(1)
     plt.imshow(img, cmap=plt.get_cmap('gray'))
     plt.hold(True)
     plt.imshow(target_pred, alpha=0.7)
     plt.title('Predicted target - accuracy_score : %s' % round(score, 3))
 
-    fig2 = plt.figure()
+    fig2 = plt.figure(2)
     plt.imshow(img, cmap=plt.get_cmap('gray'))
     plt.hold(True)
     plt.imshow(target_true, alpha=0.7)
