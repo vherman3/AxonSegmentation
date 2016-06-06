@@ -14,6 +14,13 @@ from tabulate import tabulate
 import matplotlib.pyplot as plt
 import time
 from pylab import savefig
+import os
+
+
+result_number = 3
+folder = 'resultsPipeline/result_%s'%result_number
+if not os.path.exists(folder):
+    os.makedirs(folder)
 
 
 text = '----------REPORT----------'
@@ -36,15 +43,15 @@ mask = data['mask']
 print '--Building sets \n'
 
 h, w = img.shape
-test_size = 0.85
+test_size = 0.80
 text+= '\n\n---Parameters--'
-text+= '\n-test_size = %s' % (test_size)
+text+= '\n-test_size = %s' %test_size
 
-img_train = img[:, :w*(1-test_size)]
-mask_train = mask[:,:w*(1-test_size)]
+img_train = img[:h*(1-test_size), :]
+mask_train = mask[:h*(1-test_size), :]
 
-img_test = img[:, w*(1-test_size):]
-mask_test = mask[:, w*(1-test_size):]
+img_test = img[h*(1-test_size):, :]
+mask_test = mask[h*(1-test_size):, :]
 
 img_test = img_test[:-200, :-400]
 mask_test = mask_test[:-200, :-400]
@@ -55,10 +62,13 @@ X_test = features(img_test, 3)
 y_train = np.ravel(mask_train.reshape(-1, 1))
 y_test = np.ravel(mask_test.reshape(-1, 1))
 
-# #-------Samples of the training set to reducte computational time-------#
-# n_train_s = 50000
-# X_train_s, y_train_s = sampling(X_train, y_train, n_train_s, balanced=False)
-# #----------------
+text+= '\n-train_size = (%s pixels)'% y_train.shape[0]
+
+#-------Samples of the training set to reducte computational time-------#
+n_train_s = 65000
+X_train_s, y_train_s = sampling(X_train, y_train, n_train_s, balanced=False)
+text+= '\n-sampled train = True (%s samples)'%n_train_s
+#----------------
 
 #print 'classRatio =  ', float(len(y_train[y_train == 1]))/len(y_train[y_train == 0])
 
@@ -71,8 +81,8 @@ print '--Training \n'
 clf = classifier.Classifier(verbose=True)
 
 start = time.clock()
-#clf.fit(X_train_s, y_train_s)
-clf.fit(X_train, y_train)
+clf.fit(X_train_s, y_train_s)
+#clf.fit(X_train, y_train)
 training_time = time.clock()-start
 
 print '--Predicting \n'
@@ -135,15 +145,14 @@ text = text+subtitle2+scores
 #######################################################################################################################
 #                                           Visualization                                                             #
 #######################################################################################################################
-file_number = '_2'
-folder = 'example/resultsPipeline/'
+
 
 plt.figure(1)
 plt.title('Prediction on test')
 plt.imshow(img_test, cmap=plt.get_cmap('gray'))
 plt.hold(True)
 plt.imshow(y_pred.reshape(img_test.shape[0], img_test.shape[1]), alpha=0.7)
-savefig(folder+'test_prediction'+file_number+'.png')
+savefig(folder+'/test_prediction'+'.png')
 
 
 plt.figure(2)
@@ -151,25 +160,29 @@ plt.title('Prediction on train')
 plt.imshow(img_train, cmap=plt.get_cmap('gray'))
 plt.hold(True)
 plt.imshow(y_pred_train.reshape(img_train.shape[0], img_train.shape[1]), alpha=0.7)
-savefig(folder+'train_prediction'+file_number+'.png')
+savefig(folder+'/train_prediction'+'.png')
 
 plt.figure(3)
 plt.title('Prediction on test with mrf')
 plt.imshow(img_test, cmap=plt.get_cmap('gray'))
 plt.hold(True)
 plt.imshow(img_mrf, alpha=0.7)
-savefig(folder+'test_prediction_mrf'+file_number+'.png')
+savefig(folder+'/test_prediction_mrf'+'.png')
 
 #######################################################################################################################
 #                                            Saving                                                                   #
 #######################################################################################################################
 print '\n--Saving results \n'
 
-with open(folder+'results'+file_number+'.pkl', 'wb') as handle:
+with open(folder+'/results'+'.pkl', 'wb') as handle:
      pickle.dump(results, handle)
 
-joblib.dump(clf, folder+'classifiers/'+'clf_'+file_number+'.pkl')
-
-f = open(folder+'report'+file_number+'.txt', 'w')
+f = open(folder+'/report'+'.txt', 'w')
 f.write(text)
 f.close()
+
+folder_clf = 'resultsPipeline/result_%s/classifier/'%result_number
+if not os.path.exists(folder_clf):
+    os.makedirs(folder_clf)
+
+joblib.dump(clf, folder_clf+'clf'+'.pkl')

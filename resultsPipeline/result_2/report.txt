@@ -1,0 +1,17 @@
+----------REPORT----------
+
+---Parameters--
+-test_size = 0.8
+-train_size = (235152 pixels)
+-sampled train = True (65000 samples)
+
+---Computational time--
+-training_time = 196.498194 s
+-prediction_time = 647.919687 s
+
+---Scores---
+set         accuracy    sensitivity    errors    diffusion
+--------  ----------  -------------  --------  -----------
+test        0.901462          0.809     1.216       0.2481
+train       0.910092          0.81      1.429       0.3402
+mrf test    0.907509          0.734     0.387       0.0686

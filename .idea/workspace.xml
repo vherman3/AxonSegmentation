@@ -2,26 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a2db045-b12a-4b41-a5d2-f3830dec00b1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/scores_1.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_01.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_01.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_02.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_02.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_03.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_03.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_05.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_05.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_06.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_06.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_09.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_09.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_10.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_10.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_11.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_11.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_12.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_12.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_13.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_13.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_15.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_15.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_16.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_16.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_17.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_17.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_18.npy" afterPath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_18.npy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/resultsPipeline/results_1.pkl" afterPath="$PROJECT_DIR$/example/resultsPipeline/results_1.pkl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/multipred.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_12.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_13.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_14.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_15.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_16.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_17.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/classifiers/clf__1.pkl_18.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/report_1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/results_1.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/test_prediction_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/test_prediction_mrf_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/example/resultsPipeline/train_prediction_1.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classifier.py" afterPath="$PROJECT_DIR$/classifier.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features_extraction.py" afterPath="$PROJECT_DIR$/features_extraction.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pipeline.py" afterPath="$PROJECT_DIR$/pipeline.py" />
     </list>
     <ignored path="AxonSegmentation.iws" />
@@ -53,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="groundTruth.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="groundTruth.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/groundTruth.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69343066">
+            <state vertical-scroll-proportion="0.0">
               <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -79,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/classifier.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -101,10 +107,8 @@
         <entry file="file://$PROJECT_DIR$/Parameters_optim.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="31" selection-start-line="49" selection-start-column="0" selection-end-line="70" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/pipeline.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="40" selection-end-column="119" />
               <folding>
                 <element signature="e#1#14#0" expanded="true" />
               </folding>
@@ -121,24 +125,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classification.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/metrics/classification.py">
+      <file leaf-file-name="multipred.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/multipred.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.689781">
+              <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="visualization.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visualization.py">
+      <file leaf-file-name="validation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/utils/validation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="73" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
+              <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,14 +165,15 @@
         <option value="$PROJECT_DIR$/Parameters_optim.py" />
         <option value="$PROJECT_DIR$/visualization.py" />
         <option value="$PROJECT_DIR$/sapling.py" />
+        <option value="$PROJECT_DIR$/features_extraction.py" />
         <option value="$PROJECT_DIR$/classifier.py" />
         <option value="$PROJECT_DIR$/pipeline.py" />
-        <option value="$PROJECT_DIR$/features_extraction.py" />
+        <option value="$PROJECT_DIR$/multipred.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="488" />
+    <option name="x" value="258" />
     <option name="y" value="23" />
     <option name="width" value="1720" />
     <option name="height" value="1337" />
@@ -240,7 +245,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.pipeline">
+  <component name="RunManager" selected="Python.multipred">
     <configuration default="false" name="Comparaison" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -288,6 +293,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AxonSegmentation" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pipeline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="multipred" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="AxonSegmentation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/multipred.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -414,16 +436,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.Comparaison" />
       <item index="1" class="java.lang.String" itemvalue="Python.groundTruth" />
       <item index="2" class="java.lang.String" itemvalue="Python.pipeline" />
+      <item index="3" class="java.lang.String" itemvalue="Python.multipred" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.pipeline" />
-        <item index="1" class="java.lang.String" itemvalue="Python.groundTruth" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Comparaison" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.multipred" />
+        <item index="1" class="java.lang.String" itemvalue="Python.pipeline" />
+        <item index="2" class="java.lang.String" itemvalue="Python.groundTruth" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Comparaison" />
       </list>
     </recent_temporary>
   </component>
@@ -441,7 +465,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="488" y="23" width="1720" height="1337" extended-state="0" />
+    <frame x="258" y="23" width="1720" height="1337" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20755814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -449,7 +473,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -471,11 +495,148 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/discriminative_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/groundTruth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features_extraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="122" selection-start-line="71" selection-start-column="103" selection-end-line="71" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Parameters_optim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="31" selection-start-line="49" selection-start-column="0" selection-end-line="70" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/discriminative_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/groundTruth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features_extraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="122" selection-start-line="71" selection-start-column="103" selection-end-line="71" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Parameters_optim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="31" selection-start-line="49" selection-start-column="0" selection-end-line="70" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/metrics/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data_augmentation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -491,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="80" selection-start-line="1" selection-start-column="80" selection-end-line="1" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -500,7 +660,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="19" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -519,9 +679,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="119" selection-start-line="45" selection-start-column="0" selection-end-line="47" selection-end-column="119" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -529,9 +687,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -539,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -547,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3248175">
           <caret line="218" column="37" selection-start-line="218" selection-start-column="37" selection-end-line="218" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -556,16 +710,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="19" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="122" selection-start-line="71" selection-start-column="103" selection-end-line="71" selection-end-column="122" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -573,9 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.018248174">
           <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -583,9 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -593,27 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Parameters_optim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="31" selection-start-line="49" selection-start-column="0" selection-end-line="70" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -622,16 +741,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -647,16 +756,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.018867925">
           <caret line="1" column="80" selection-start-line="1" selection-start-column="80" selection-end-line="1" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/groundTruth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69343066">
+        <state vertical-scroll-proportion="0.0">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comparison.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="122" selection-start-line="71" selection-start-column="103" selection-end-line="71" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/multiprocessing/process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Parameters_optim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="40" selection-end-column="119" />
+          <folding>
+            <element signature="e#1#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="385" column="0" selection-start-line="385" selection-start-column="0" selection-end-line="385" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multipred.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.689781">
+          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
