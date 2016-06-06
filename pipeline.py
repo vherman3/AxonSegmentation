@@ -6,8 +6,9 @@ from features_extraction import features
 from sampling import sampling
 from sklearn.externals import joblib
 import classifier
-from mrf import mrf_hmrf
-from segmentation_scoring import rejectOne_score
+from mrf import run_mrf
+from mrf import train_mrf
+from Segmentation_scoring import rejectOne_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import accuracy_score
 from tabulate import tabulate
@@ -55,6 +56,14 @@ X_test = features(img_test, 3)
 y_train = np.ravel(mask_train.reshape(-1, 1))
 y_test = np.ravel(mask_test.reshape(-1, 1))
 
+# Parameters MRF post processing
+nb_class = 2
+max_map_iter = 10
+weight_init = [1.0, 1.0, 1.0]
+threshold_learning = 0.1
+threshold_sensitivity = 0.70
+
+
 # #-------Samples of the training set to reducte computational time-------#
 # n_train_s = 50000
 # X_train_s, y_train_s = sampling(X_train, y_train, n_train_s, balanced=False)
@@ -73,13 +82,14 @@ clf = classifier.Classifier(verbose=True)
 start = time.clock()
 #clf.fit(X_train_s, y_train_s)
 clf.fit(X_train, y_train)
+y_pred_train = clf.predict(X_train)
+weight_learned = train_mrf(y_pred_train, img_train, nb_class, max_map_iter, weight_init, threshold_learning, y_train, threshold_sensitivity)
 training_time = time.clock()-start
 
 print '--Predicting \n'
 
 start = time.clock()
 y_pred = clf.predict(X_test)
-y_pred_train = clf.predict(X_train)
 prediction_time = time.clock()-start
 
 results = {}
@@ -99,10 +109,8 @@ text+= '\n-prediction_time = %s s' % (prediction_time)
 #######################################################################################################################
 print '--Postprocessing \n'
 
-img_mrf = mrf_hmrf(results, type='mrf')
-y_pred_mrf = img_mrf.reshape(-1, 1)
-
-results['y_pred_mrf'] = y_pred_mrf
+img_mrf = run_mrf(y_pred, img_test, nb_class, max_map_iter, weight_learned)
+y_pred_mrf = (img_mrf == 1).reshape(-1, 1)
 results['y_pred_mrf'] = y_pred_mrf
 
 #######################################################################################################################
