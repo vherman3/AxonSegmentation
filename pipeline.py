@@ -6,7 +6,8 @@ from features_extraction import features
 from sampling import sampling
 from sklearn.externals import joblib
 import classifier
-from mrf import mrf_hmrf
+from mrf import train_mrf
+from mrf import run_mrf
 from segmentation_scoring import rejectOne_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import accuracy_score
@@ -65,6 +66,16 @@ y_test = np.ravel(mask_test.reshape(-1, 1))
 
 text+= '\n-train_size = (%s pixels)'% y_train.shape[0]
 
+#MRF parameters
+nb_class = 2
+max_map_iter = 10
+alpha = 1.0
+beta = 1.0
+sigma_blur = 1.0
+threshold_learning = 0.1
+threshold_sensitivity = 0.65
+threshold_error = 0.10
+
 # #-------Samples of the training set to reducte computational time-------#
 # n_train_s = 65000
 # X_train_s, y_train_s = sampling(X_train, y_train, n_train_s, balanced=False)
@@ -84,6 +95,8 @@ clf = classifier.Classifier(verbose=True)
 start = time.clock()
 #clf.fit(X_train_s, y_train_s)
 clf.fit(X_train, y_train)
+weight = train_mrf(y_pred_svm_train, img_train, nb_class, max_map_iter, [alpha, beta, sigma_blur], threshold_learning, y_train, threshold_sensitivity)
+#weight = train_mrf(y_pred_svm_train, img_train, nb_class, max_map_iter, [alpha, beta, sigma_blur], threshold_learning, y_train, threshold_sensitivity, threshold_error)
 training_time = time.clock()-start
 
 print '--Predicting \n'
@@ -110,7 +123,8 @@ text+= '\n-prediction_time = %s s' % (prediction_time)
 #######################################################################################################################
 print '--Postprocessing \n'
 
-img_mrf = mrf_hmrf(results, type='mrf')
+img_mrf = run_mrf(y_pred_svm_test, img_test, nb_class, max_map_iter, weight)
+img_mrf = img_mrf == 1
 y_pred_mrf = img_mrf.reshape(-1, 1)
 
 results['y_pred_mrf'] = y_pred_mrf
