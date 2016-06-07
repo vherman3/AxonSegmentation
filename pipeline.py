@@ -15,9 +15,10 @@ import matplotlib.pyplot as plt
 import time
 from pylab import savefig
 import os
+from multipred import parallized_pred
 
 
-result_number = 3
+result_number = 5
 folder = 'resultsPipeline/result_%s'%result_number
 if not os.path.exists(folder):
     os.makedirs(folder)
@@ -64,11 +65,11 @@ y_test = np.ravel(mask_test.reshape(-1, 1))
 
 text+= '\n-train_size = (%s pixels)'% y_train.shape[0]
 
-#-------Samples of the training set to reducte computational time-------#
-n_train_s = 65000
-X_train_s, y_train_s = sampling(X_train, y_train, n_train_s, balanced=False)
-text+= '\n-sampled train = True (%s samples)'%n_train_s
-#----------------
+# #-------Samples of the training set to reducte computational time-------#
+# n_train_s = 65000
+# X_train_s, y_train_s = sampling(X_train, y_train, n_train_s, balanced=False)
+# text+= '\n-sampled train = True (%s samples)'%n_train_s
+# #----------------
 
 #print 'classRatio =  ', float(len(y_train[y_train == 1]))/len(y_train[y_train == 0])
 
@@ -81,15 +82,15 @@ print '--Training \n'
 clf = classifier.Classifier(verbose=True)
 
 start = time.clock()
-clf.fit(X_train_s, y_train_s)
-#clf.fit(X_train, y_train)
+#clf.fit(X_train_s, y_train_s)
+clf.fit(X_train, y_train)
 training_time = time.clock()-start
 
 print '--Predicting \n'
 
 start = time.clock()
-y_pred = clf.predict(X_test)
-y_pred_train = clf.predict(X_train)
+y_pred = parallized_pred(X_test, clf)
+y_pred_train = parallized_pred(X_train, clf)
 prediction_time = time.clock()-start
 
 results = {}
