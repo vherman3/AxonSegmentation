@@ -1,0 +1,14 @@
+----------REPORT----------
+
+---Parameters--
+-test_size = 0.8
+
+---Computational time--
+-training_time = 10.2368700504 s
+-prediction_time = 167.083431005 s
+
+---Scores---
+classRatio =  0.675079
+Accuracy on test : 0.753351487222
+Accuracy on train: 0.815134538664
+---Comments--We try random forests, max_depth=10
