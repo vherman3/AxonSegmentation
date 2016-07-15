@@ -1,5 +1,6 @@
 import tensorflow as tf
 import math
+import numpy as np
 import matplotlib.pyplot as plt
 
 from input_data import input_data
@@ -8,11 +9,11 @@ data_test = input_data('test')
 
 
 # Parameters
-learning_rate = 0.05
-training_iters = 1000
-batch_size = 5
+learning_rate = 0.001
+training_iters = 400
+batch_size = 30
 display_step = 1
-depth = 3
+depth = 4
 image_size = 256
 
 # Network Parameters
@@ -66,12 +67,9 @@ def conv_net(x, weights, biases, dropout, image_size = image_size):
 # expansion
     for i in range(depth):
         data_temp = tf.image.resize_images(data_temp, data_temp_size[-1] * 2, data_temp_size[-1] * 2)
+        #upconv = conv2d(data_temp, weights['upconv'][i], biases['upconv'][i])
         upconv = tf.nn.conv2d(data_temp, weights['upconv'][i], strides=[1, 1, 1, 1], padding='SAME')
         data_temp_size.append(data_temp_size[-1]*2)
-
-        #print upconv
-        #print relu_results[depth-i-1]
-        #print tf.slice(relu_results[depth-i-1], [0, 0, 0, 0], [-1, data_temp_size[depth-i-1], data_temp_size[depth-i-1], -1])
 
         upconv_concat = tf.concat(concat_dim=3, values=[tf.slice(relu_results[depth-i-1], [0, 0, 0, 0],
                                                                  [-1, data_temp_size[depth-i-1], data_temp_size[depth-i-1], -1]), upconv])
@@ -79,6 +77,7 @@ def conv_net(x, weights, biases, dropout, image_size = image_size):
         conv2 = conv2d(conv1, weights['we2'][i], biases['be2'][i])
         data_temp = conv2
 
+    #finalconv = conv2d(conv2, weights['finalconv'], biases['finalconv_b'])
     finalconv = tf.nn.conv2d(conv2, weights['finalconv'], strides=[1, 1, 1, 1], padding='SAME')
     final_result = tf.reshape(finalconv, tf.TensorShape([finalconv.get_shape().as_list()[0] * data_temp_size[-1] * data_temp_size[-1], 2]))
 
@@ -86,7 +85,7 @@ def conv_net(x, weights, biases, dropout, image_size = image_size):
 
 
 weights = {'wc1':[],'wc2':[],'we1':[],'we2':[],'upconv':[],'finalconv':[],'wb1':[], 'wb2':[]}
-biases = {'bc1':[],'bc2':[],'be1':[],'be2':[],'bb1':[], 'bb2':[]}
+biases = {'bc1':[],'bc2':[],'be1':[],'be2':[],'finalconv_b':[],'bb1':[], 'bb2':[],'upconv':[]}
 
 
 # Contraction
@@ -120,6 +119,7 @@ for i in range(depth):
 
     num_features = num_features_init/2
     weights['upconv'].append(tf.Variable(tf.random_normal([2, 2, num_features_init, num_features])))
+    biases['upconv'].append(tf.Variable(tf.random_normal([num_features])))
     weights['we1'].append(tf.Variable(tf.random_normal([3, 3, num_features_init, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features_init))))))
     weights['we2'].append(tf.Variable(tf.random_normal([3, 3, num_features, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
     biases['be1'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
@@ -128,14 +128,14 @@ for i in range(depth):
     num_features_init = num_features
 
 weights['finalconv']= tf.Variable(tf.random_normal([1, 1, num_features, n_classes]))
-
+biases['finalconv_b']= tf.Variable(tf.random_normal([n_classes]))
 
 # Construct model
 pred = conv_net(x, weights, biases, keep_prob)
 
 # Define loss and optimizer
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y))
-optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cost)
+optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 # Evaluate model
 correct_pred = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
@@ -158,13 +158,24 @@ with tf.Session() as sess:
                                                               y: batch_y,
                                                               keep_prob: 1.})
 
-            prediction = data_train.read_batch(p, batch_size)[0, :, :, 1]
+            prediction = data_train.read_batch(p, batch_size)[0, :, :, 0]
+            ground_truth = data_train.read_batch(batch_y, batch_size)[0, :, :, 0]
+            #print prediction[1]
+
             image = batch_x[0, :, :]
-            plt.figure(5)
+            plt.figure(1)
             plt.imshow(image, cmap=plt.get_cmap('gray'))
             plt.hold(True)
             plt.imshow(prediction, alpha=0.7)
+
+            image = batch_x[0, :, :]
+            plt.figure(2)
+            plt.imshow(image, cmap=plt.get_cmap('gray'))
+            plt.hold(True)
+            plt.imshow(ground_truth, alpha=0.7)
             plt.show()
+
+            #print weights['wc1'][0].eval()[0]
 
 
 
@@ -173,6 +184,7 @@ with tf.Session() as sess:
                   "{:.5f}".format(acc)
 
         step += 1
+    plt.show()
     print "Optimization Finished!"
 
     # Calculate accuracy for 256 mnist test images

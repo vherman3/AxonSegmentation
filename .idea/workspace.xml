@@ -2,137 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a2db045-b12a-4b41-a5d2-f3830dec00b1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_01.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_02.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_03.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_04.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_05.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_06.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_07.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_08.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_09.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_10.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_11.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_12.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_13.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_14.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_15.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_16.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_17.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/classifier/clf.pkl_18.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/report.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/results.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/test_prediction.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/test_prediction_contour.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/test_prediction_mrf.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_3/train_prediction.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_01.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_02.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_03.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_04.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_05.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_06.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_07.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_08.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_09.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_10.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_11.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_12.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_13.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_14.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_15.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_16.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_17.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_18.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_19.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_20.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_21.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_22.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_23.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_24.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_25.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_26.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_27.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_28.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_29.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_30.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_31.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_32.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_33.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_34.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_35.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_36.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_37.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_38.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_39.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_40.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_41.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_42.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_43.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_44.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_45.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_46.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_47.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/classifier/clf.pkl_48.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/report.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/test_prediction.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_2/test_training.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_01.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_02.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_03.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_04.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_05.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_06.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_07.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_08.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_09.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_10.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_11.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_12.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_13.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_14.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_15.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_16.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_17.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_18.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_19.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_20.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_21.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_22.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_23.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_24.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_25.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_26.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_27.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_28.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_29.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_30.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_31.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_32.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_33.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_34.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_35.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_36.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_37.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_38.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_39.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_40.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_41.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_42.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_43.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_44.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_45.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_46.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_47.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/classifier/clf.pkl_48.npy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/report.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/test_prediction.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_3/test_training.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvNets/input_data.py" afterPath="$PROJECT_DIR$/ConvNets/input_data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvNets/tuto_tf.py" afterPath="$PROJECT_DIR$/ConvNets/tuto_tf.py" />
     </list>
     <ignored path="AxonSegmentation.iws" />
@@ -154,36 +24,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tuto_tf.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tuto_tf.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ConvNets/tuto_tf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.448905">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input_data.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ConvNets/input_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0948905">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="64" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utrunner.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/utrunner.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -235,8 +83,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="553" />
-    <option name="y" value="23" />
+    <option name="x" value="514" />
+    <option name="y" value="78" />
     <option name="width" value="1976" />
     <option name="height" value="1337" />
   </component>
@@ -610,15 +458,15 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="553" y="23" width="1976" height="1337" extended-state="0" />
+    <frame x="514" y="78" width="1976" height="1337" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2742915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2742915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -632,6 +480,26 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2742915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39984226" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -670,13 +538,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/visualization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_augmentation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -982,19 +843,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/gen_nn_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="294" column="0" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ConvNets/dataset_construction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36131388">
           <caret line="215" column="39" selection-start-line="209" selection-start-column="6" selection-end-line="215" selection-end-column="39" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1003,7 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.018248174">
           <caret line="552" column="0" selection-start-line="552" selection-start-column="0" selection-end-line="552" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,28 +870,43 @@
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/utrunner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-1.2262774">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNets/input_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0766424">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="64" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#29#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/gen_nn_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="294" column="0" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/gen_array_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="1091" column="0" selection-start-line="1091" selection-start-column="0" selection-end-line="1091" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConvNets/tuto_tf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.448905">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/input_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0948905">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="64" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
