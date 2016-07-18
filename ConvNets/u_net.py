@@ -2,17 +2,19 @@ import tensorflow as tf
 import math
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+import pickle
 
 from input_data import input_data
 data_train = input_data('train')
 data_test = input_data('test')
-
+result_number = 1
 
 # Parameters
-learning_rate = 0.001
-training_iters = 400
-batch_size = 30
-display_step = 1
+learning_rate = 0.004
+training_iters = 5000
+batch_size = 1
+display_step = 50
 depth = 4
 image_size = 256
 
@@ -67,8 +69,8 @@ def conv_net(x, weights, biases, dropout, image_size = image_size):
 # expansion
     for i in range(depth):
         data_temp = tf.image.resize_images(data_temp, data_temp_size[-1] * 2, data_temp_size[-1] * 2)
-        #upconv = conv2d(data_temp, weights['upconv'][i], biases['upconv'][i])
-        upconv = tf.nn.conv2d(data_temp, weights['upconv'][i], strides=[1, 1, 1, 1], padding='SAME')
+        upconv = conv2d(data_temp, weights['upconv'][i], biases['upconv'][i])
+        #upconv = tf.nn.conv2d(data_temp, weights['upconv'][i], strides=[1, 1, 1, 1], padding='SAME')
         data_temp_size.append(data_temp_size[-1]*2)
 
         upconv_concat = tf.concat(concat_dim=3, values=[tf.slice(relu_results[depth-i-1], [0, 0, 0, 0],
@@ -142,13 +144,14 @@ correct_pred = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 init = tf.initialize_all_variables()
+saver = tf.train.Saver()
 # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
     step = 1
     # Keep training until reach max iterations
     while step * batch_size < training_iters:
-        batch_x, batch_y = data_train.next_batch(batch_size)
+        batch_x, batch_y = data_train.next_batch(batch_size, rnd = False)
         # Run optimization op (backprop)
         sess.run(optimizer, feed_dict={x: batch_x, y: batch_y,
                                        keep_prob: dropout})
@@ -160,22 +163,19 @@ with tf.Session() as sess:
 
             prediction = data_train.read_batch(p, batch_size)[0, :, :, 0]
             ground_truth = data_train.read_batch(batch_y, batch_size)[0, :, :, 0]
-            #print prediction[1]
 
-            image = batch_x[0, :, :]
-            plt.figure(1)
-            plt.imshow(image, cmap=plt.get_cmap('gray'))
-            plt.hold(True)
-            plt.imshow(prediction, alpha=0.7)
-
-            image = batch_x[0, :, :]
-            plt.figure(2)
-            plt.imshow(image, cmap=plt.get_cmap('gray'))
-            plt.hold(True)
-            plt.imshow(ground_truth, alpha=0.7)
-            plt.show()
-
-            #print weights['wc1'][0].eval()[0]
+            # image = batch_x[0, :, :]
+            # plt.figure(1)
+            # plt.imshow(image, cmap=plt.get_cmap('gray'))
+            # plt.hold(True)
+            # plt.imshow(prediction, alpha=0.7)
+            #
+            # image = batch_x[0, :, :]
+            # plt.figure(2)
+            # plt.imshow(image, cmap=plt.get_cmap('gray'))
+            # plt.hold(True)
+            # plt.imshow(ground_truth, alpha=0.7)
+            # plt.show()
 
 
 
@@ -184,11 +184,19 @@ with tf.Session() as sess:
                   "{:.5f}".format(acc)
 
         step += 1
-    plt.show()
     print "Optimization Finished!"
+
+    folder = 'dataset/model_parameters%s'%result_number
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    save_path = saver.save(sess, folder+"/model.ckpt")
+
+    print("Model saved in file: %s" % save_path)
 
     # Calculate accuracy for 256 mnist test images
     print "Testing Accuracy:", \
         sess.run(accuracy, feed_dict={x: data_test.extract_batch(0, batch_size)[0],
                                       y: data_test.extract_batch(0, batch_size)[1],
                                       keep_prob: 1.})
+
+

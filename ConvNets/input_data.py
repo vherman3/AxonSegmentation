@@ -1,16 +1,18 @@
 from scipy.misc import imread
 from sklearn import preprocessing
 import numpy as np
+import random
 import matplotlib.pyplot as plt
 
 class input_data:
     def __init__(self, type = 'train'):
         if type == 'train' :
             self.path = 'dataset/Train/'
+            self.set_size = 34414
         if type == 'test' :
             self.path = 'dataset/Test/'
+            self.set_size = 17209
         self.size_image = 256
-        self.batch_start = 0
         self.batch_start = 0
         self.n_labels = 2
 
@@ -28,25 +30,17 @@ class input_data:
 
         return [np.asarray(batch_x), batch_y]
 
-    def next_batch(self, batch_size):
+    def next_batch(self, batch_size, rnd = False):
         batch_start = self.batch_start
         self.batch_start+=batch_size
-
+        if random :
+            self.batch_start = random.randint(0, self.set_size - batch_size)
         return self.extract_batch(batch_start, batch_size)
 
     def read_batch(self, batch_y, size_batch):
         images = batch_y.reshape(size_batch, self.size_image, self.size_image, self.n_labels)
         return images
 
-
-class train(input_data):
-    def __init__(self):
-        self.path_train = 'dataset/Train'
-        input_data.init(self)
-
-class test(input_data):
-    def __init__(self):
-        self.path_test = 'dataset/Test'
 #
 #
 # data_train = input_data('train')
