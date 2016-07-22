@@ -4,19 +4,37 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import pickle
+from pylab import savefig
+import random
 
 from input_data import input_data
 data_train = input_data('train')
 data_test = input_data('test')
-result_number = 1
+
+
+result_number = 5
+folder = 'dataset/image_results_%s'%result_number
+if not os.path.exists(folder):
+    os.makedirs(folder)
+
+folder2 = 'dataset/model_parameters%s'%result_number
+if not os.path.exists(folder2):
+    os.makedirs(folder2)
+
+# Divers variables
+Loss = []
+Step = []
+text = ''
 
 # Parameters
-learning_rate = 0.004
-training_iters = 5000
+learning_rate = 0.003
+training_iters = 1000
 batch_size = 1
 display_step = 50
+save_step = 50
 depth = 4
 image_size = 256
+number_of_cores = 3
 
 # Network Parameters
 n_input = image_size * image_size
@@ -101,42 +119,44 @@ for i in range(depth):
 
 # Store layers weight & bias
 
-  weights['wc1'].append(tf.Variable(tf.random_normal([3, 3, num_features_init, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features_init))))))
-  weights['wc2'].append(tf.Variable(tf.random_normal([3, 3, num_features, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
-  biases['bc1'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
-  biases['bc2'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
+  weights['wc1'].append(tf.Variable(tf.random_normal([3, 3, num_features_init, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features_init)))), name = 'wc1-%s'%i))
+  weights['wc2'].append(tf.Variable(tf.random_normal([3, 3, num_features, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name = 'wc2-%s'%i))
+  biases['bc1'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name='bc1-%s'%i))
+  biases['bc2'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name='bc2-%s'%i))
 
   image_size = image_size/2
   num_features_init = num_features
   num_features = num_features_init*2
 
-weights['wb1']= tf.Variable(tf.random_normal([3, 3, num_features_init, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features_init)))))
-weights['wb2']= tf.Variable(tf.random_normal([3, 3, num_features, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))))
-biases['bb1']= tf.Variable(tf.random_normal([num_features]))
-biases['bb2']= tf.Variable(tf.random_normal([num_features]))
+weights['wb1']= tf.Variable(tf.random_normal([3, 3, num_features_init, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features_init)))),name='wb1-%s'%i)
+weights['wb2']= tf.Variable(tf.random_normal([3, 3, num_features, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name='wb2-%s'%i)
+biases['bb1']= tf.Variable(tf.random_normal([num_features]), name='bb2-%s'%i)
+biases['bb2']= tf.Variable(tf.random_normal([num_features]), name='bb2-%s'%i)
 
 num_features_init = num_features
 
 for i in range(depth):
 
     num_features = num_features_init/2
-    weights['upconv'].append(tf.Variable(tf.random_normal([2, 2, num_features_init, num_features])))
-    biases['upconv'].append(tf.Variable(tf.random_normal([num_features])))
-    weights['we1'].append(tf.Variable(tf.random_normal([3, 3, num_features_init, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features_init))))))
-    weights['we2'].append(tf.Variable(tf.random_normal([3, 3, num_features, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
-    biases['be1'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
-    biases['be2'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features))))))
+    weights['upconv'].append(tf.Variable(tf.random_normal([2, 2, num_features_init, num_features]), name='upconv-%s'%i))
+    biases['upconv'].append(tf.Variable(tf.random_normal([num_features]), name='bupconv-%s'%i))
+    weights['we1'].append(tf.Variable(tf.random_normal([3, 3, num_features_init, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features_init)))), name='we1-%s'%i))
+    weights['we2'].append(tf.Variable(tf.random_normal([3, 3, num_features, num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name='we2-%s'%i))
+    biases['be1'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name='be1-%s'%i))
+    biases['be2'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name='be2-%s'%i))
 
     num_features_init = num_features
 
-weights['finalconv']= tf.Variable(tf.random_normal([1, 1, num_features, n_classes]))
-biases['finalconv_b']= tf.Variable(tf.random_normal([n_classes]))
+weights['finalconv']= tf.Variable(tf.random_normal([1, 1, num_features, n_classes]), name='finalconv-%s'%i)
+biases['finalconv_b']= tf.Variable(tf.random_normal([n_classes]), name='bfinalconv-%s'%i)
 
 # Construct model
 pred = conv_net(x, weights, biases, keep_prob)
 
 # Define loss and optimizer
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y))
+tf.scalar_summary('Loss', cost)
+
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 # Evaluate model
@@ -144,14 +164,21 @@ correct_pred = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 init = tf.initialize_all_variables()
-saver = tf.train.Saver()
+saver = tf.train.Saver(tf.all_variables())
+
+
+summary_op = tf.merge_all_summaries()
+
 # Launch the graph
-with tf.Session() as sess:
+with tf.Session(config=tf.ConfigProto(inter_op_parallelism_threads= number_of_cores, intra_op_parallelism_threads= number_of_cores)) as sess:
     sess.run(init)
     step = 1
+
+    print 'training start'
+
     # Keep training until reach max iterations
     while step * batch_size < training_iters:
-        batch_x, batch_y = data_train.next_batch(batch_size, rnd = False)
+        batch_x, batch_y = data_train.next_batch(batch_size, rnd = True)
         # Run optimization op (backprop)
         sess.run(optimizer, feed_dict={x: batch_x, y: batch_y,
                                        keep_prob: dropout})
@@ -164,18 +191,32 @@ with tf.Session() as sess:
             prediction = data_train.read_batch(p, batch_size)[0, :, :, 0]
             ground_truth = data_train.read_batch(batch_y, batch_size)[0, :, :, 0]
 
-            # image = batch_x[0, :, :]
-            # plt.figure(1)
-            # plt.imshow(image, cmap=plt.get_cmap('gray'))
-            # plt.hold(True)
-            # plt.imshow(prediction, alpha=0.7)
-            #
-            # image = batch_x[0, :, :]
-            # plt.figure(2)
-            # plt.imshow(image, cmap=plt.get_cmap('gray'))
-            # plt.hold(True)
-            # plt.imshow(ground_truth, alpha=0.7)
-            # plt.show()
+            Loss.append(loss)
+            Step.append(step)
+
+            if step % save_step == 0 :
+                image = batch_x[0, :, :]
+                plt.figure(1)
+                plt.imshow(image, cmap=plt.get_cmap('gray'))
+                plt.hold(True)
+                plt.imshow(prediction, alpha=0.7)
+                savefig(folder+'/prediction_%s'%step+'.png')
+
+                image = batch_x[0, :, :]
+                plt.figure(2)
+                plt.imshow(image, cmap=plt.get_cmap('gray'))
+                plt.hold(True)
+                plt.imshow(ground_truth, alpha=0.7)
+                savefig(folder+'/GT_%s'%step+'.png')
+
+                #if step == save_step :
+                    #plt.show()
+
+
+            if step%(3*save_step) == 0 :
+                save_path = saver.save(sess, folder2+"/model.ckpt")
+                print("Model saved in file: %s" % save_path)
+                #plt.show()
 
 
 
@@ -186,17 +227,21 @@ with tf.Session() as sess:
         step += 1
     print "Optimization Finished!"
 
-    folder = 'dataset/model_parameters%s'%result_number
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-    save_path = saver.save(sess, folder+"/model.ckpt")
 
-    print("Model saved in file: %s" % save_path)
+    print Step
+    print Loss
+    plt.plot(Step[3:], Loss[3:])
+    savefig(folder+'/loss_evolution'+'.png')
 
     # Calculate accuracy for 256 mnist test images
-    print "Testing Accuracy:", \
-        sess.run(accuracy, feed_dict={x: data_test.extract_batch(0, batch_size)[0],
-                                      y: data_test.extract_batch(0, batch_size)[1],
-                                      keep_prob: 1.})
+    test_accuracy = []
+    for i in range(100):
+        batch_x,batch_y = data_test.next_batch(batch_size, rnd = True)
+        test_accuracy.append(sess.run(accuracy, feed_dict={x: batch_x, y: batch_y, keep_prob: 1.}))
+    print 'mean accuracy', np.mean(test_accuracy)
+
+    f = open(folder+'/report'+'.txt', 'w')
+    f.write(text)
+    f.close()
 
 

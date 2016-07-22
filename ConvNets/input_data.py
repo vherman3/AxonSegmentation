@@ -2,6 +2,7 @@ from scipy.misc import imread
 from sklearn import preprocessing
 import numpy as np
 import random
+
 import matplotlib.pyplot as plt
 
 class input_data:
@@ -34,7 +35,7 @@ class input_data:
         batch_start = self.batch_start
         self.batch_start+=batch_size
         if random :
-            self.batch_start = random.randint(0, self.set_size - batch_size)
+            self.batch_start = random.randint(0,self.set_size - batch_size)
         return self.extract_batch(batch_start, batch_size)
 
     def read_batch(self, batch_y, size_batch):
