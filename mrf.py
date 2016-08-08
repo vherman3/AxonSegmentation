@@ -128,3 +128,4 @@ def train_mrf(label_field, feature_field, nb_class, max_map_iter, weight, thresh
         print 'No parameter changes: re-examine the learning conditions'
 
     return weight
+

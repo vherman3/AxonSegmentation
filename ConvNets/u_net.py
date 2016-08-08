@@ -5,34 +5,45 @@ import matplotlib.pyplot as plt
 import os
 import pickle
 from pylab import savefig
-import random
+from skimage import exposure
 
 from input_data import input_data
 data_train = input_data('train')
 data_test = input_data('test')
 
+# Divers variables
+Loss = []
+Step = []
+Accuracy = []
+text = ''
 
-result_number = 5
+# Training or Predicting
+train = True
+restore = False
+restored_model = 8
+
+# Display
+display = False
+
+# Results and Models
+result_number = 10
 folder = 'dataset/image_results_%s'%result_number
 if not os.path.exists(folder):
     os.makedirs(folder)
 
-folder2 = 'dataset/model_parameters%s'%result_number
-if not os.path.exists(folder2):
-    os.makedirs(folder2)
+folder_model = 'dataset/model_parameters%s'%result_number
+if not os.path.exists(folder_model):
+    os.makedirs(folder_model)
 
-# Divers variables
-Loss = []
-Step = []
-text = ''
+
 
 # Parameters
 learning_rate = 0.003
-training_iters = 1000
+training_iters = 2000
 batch_size = 1
 display_step = 50
-save_step = 50
-depth = 4
+save_step = 20
+depth = 6
 image_size = 256
 number_of_cores = 3
 
@@ -157,91 +168,153 @@ pred = conv_net(x, weights, biases, keep_prob)
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(pred, y))
 tf.scalar_summary('Loss', cost)
 
+index = tf.Variable(0, trainable=False)
+learning_rate = tf.train.exponential_decay(0.001,  # Base learning rate.
+                                                   index,  # Current index into the dataset.
+                                                   training_iters,  # Decay step.
+                                                   0.95,  # Decay rate.
+                                                   staircase=True)
+
 optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
 # Evaluate model
 correct_pred = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
+mask = tf.argmax(pred,1)
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 init = tf.initialize_all_variables()
 saver = tf.train.Saver(tf.all_variables())
 
-
 summary_op = tf.merge_all_summaries()
 
 # Launch the graph
-with tf.Session(config=tf.ConfigProto(inter_op_parallelism_threads= number_of_cores, intra_op_parallelism_threads= number_of_cores)) as sess:
-    sess.run(init)
-    step = 1
+with tf.Session(config=tf.ConfigProto( inter_op_parallelism_threads= number_of_cores, intra_op_parallelism_threads= number_of_cores)) as sess:
 
-    print 'training start'
+    if train :
 
-    # Keep training until reach max iterations
-    while step * batch_size < training_iters:
-        batch_x, batch_y = data_train.next_batch(batch_size, rnd = True)
-        # Run optimization op (backprop)
-        sess.run(optimizer, feed_dict={x: batch_x, y: batch_y,
-                                       keep_prob: dropout})
-        if step % display_step == 0:
-            # Calculate batch loss and accuracy
-            loss, acc, p = sess.run([cost, accuracy, pred], feed_dict={x: batch_x,
-                                                              y: batch_y,
-                                                              keep_prob: 1.})
+        if restore :
+            saver.restore(sess, "dataset/model_parameters%s/model.ckpt"%restored_model)
+        else:
+            sess.run(init)
+        print 'training start'
 
-            prediction = data_train.read_batch(p, batch_size)[0, :, :, 0]
-            ground_truth = data_train.read_batch(batch_y, batch_size)[0, :, :, 0]
 
-            Loss.append(loss)
-            Step.append(step)
+        # Keep training until reach max iterations
+        step = 1
+        while step * batch_size < training_iters:
+            batch_x, batch_y = data_train.next_batch(batch_size, rnd = True)
+            # Run optimization op (backprop)
+            sess.run(optimizer, feed_dict={x: batch_x, y: batch_y,
+                                           keep_prob: dropout})
 
-            if step % save_step == 0 :
-                image = batch_x[0, :, :]
-                plt.figure(1)
-                plt.imshow(image, cmap=plt.get_cmap('gray'))
-                plt.hold(True)
-                plt.imshow(prediction, alpha=0.7)
-                savefig(folder+'/prediction_%s'%step+'.png')
+            if step % display_step == 0:
+                # Calculate batch loss and accuracy
+                loss, acc, p = sess.run([cost, accuracy, pred], feed_dict={x: batch_x,
+                                                                  y: batch_y,
+                                                                  keep_prob: 1., index: step*batch_size})
 
-                image = batch_x[0, :, :]
-                plt.figure(2)
-                plt.imshow(image, cmap=plt.get_cmap('gray'))
-                plt.hold(True)
-                plt.imshow(ground_truth, alpha=0.7)
-                savefig(folder+'/GT_%s'%step+'.png')
+                prediction = data_train.read_batch(p, batch_size)[0, :, :, 0]
+                ground_truth = data_train.read_batch(batch_y, batch_size)[0, :, :, 0]
 
-                #if step == save_step :
+                Loss.append(loss)
+                Step.append(step)
+                Accuracy.append(acc)
+
+                if display :
+                    if step % save_step == 0 :
+                        image = batch_x[0, :, :]
+                        plt.figure(1)
+                        plt.imshow(image, cmap=plt.get_cmap('gray'))
+                        plt.hold(True)
+                        plt.imshow(prediction, alpha=0.7)
+                        savefig(folder+'/prediction_%s'%step+'.png')
+
+                        image = batch_x[0, :, :]
+                        plt.figure(2)
+                        plt.imshow(image, cmap=plt.get_cmap('gray'))
+                        plt.hold(True)
+                        plt.imshow(ground_truth, alpha=0.7)
+                        savefig(folder+'/GT_%s'%step+'.png')
+
+                        #if step == save_step :
+                            #plt.show()
+
+
+                if step%(3*save_step) == 0 :
+                    save_path = saver.save(sess, folder_model+"/model.ckpt")
+                    print("Model saved in file: %s" % save_path)
                     #plt.show()
 
 
-            if step%(3*save_step) == 0 :
-                save_path = saver.save(sess, folder2+"/model.ckpt")
-                print("Model saved in file: %s" % save_path)
-                #plt.show()
+
+                print "Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
+                      "{:.6f}".format(loss) + ", Training Accuracy= " + \
+                      "{:.5f}".format(acc)
+
+            step += 1
+        print "Optimization Finished!"
+
+        save_path = saver.save(sess, folder_model+"/model.ckpt")
+        print("Model saved in file: %s" % save_path)
+        evolution = {'loss': Loss, 'steps': Step, 'accuracy': Accuracy}
+
+        with open(folder_model+'/evolution.pkl', 'wb') as handle:
+            pickle.dump(evolution, handle)
+
+        if display :
+            plt.figure(3)
+            plt.plot(Step[3:], Loss[3:])
+            savefig(folder+'/loss_evolution'+'.png')
+
+##########################################
+# Prediction
+##########################################
+
+    else :
+        saver.restore(sess, folder_model+"/model.ckpt")
+
+        file = open(folder_model+'/evolution.pkl','r')
+        evolution = pickle.load(file)
+
+        fig = plt.figure(1)
+        ax = fig.add_subplot(111)
+        ax.plot(evolution['steps'], evolution['accuracy'], '-', label = 'accuracy')
+        ax2 = ax.twinx()
+        ax2.plot(evolution['steps'][3:], evolution['loss'][3:], '-r', label = 'loss')
+        #plt.show()
 
 
+        test_accuracy = []
+        print 'Prediction start'
 
-            print "Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
-                  "{:.6f}".format(loss) + ", Training Accuracy= " + \
-                  "{:.5f}".format(acc)
+        for i in range(200,250):
+            print i
+            batch_x, batch_y = data_test.next_batch(batch_size, rnd=True)
+            [acc, p] = sess.run([accuracy,pred], feed_dict={x: batch_x, y: batch_y, keep_prob: 1.})
 
-        step += 1
-    print "Optimization Finished!"
+            test_accuracy.append(acc)
 
+            prediction = data_train.read_batch(p, batch_size)[0, :, :, 1]
+            prediction_m = data_train.read_batch(p, batch_size)[0, :, :, 0]
 
-    print Step
-    print Loss
-    plt.plot(Step[3:], Loss[3:])
-    savefig(folder+'/loss_evolution'+'.png')
+            Mask = prediction - prediction_m > 0
+            ground_truth = data_train.read_batch(batch_y, batch_size)[0, :, :, 0]
 
-    # Calculate accuracy for 256 mnist test images
-    test_accuracy = []
-    for i in range(100):
-        batch_x,batch_y = data_test.next_batch(batch_size, rnd = True)
-        test_accuracy.append(sess.run(accuracy, feed_dict={x: batch_x, y: batch_y, keep_prob: 1.}))
-    print 'mean accuracy', np.mean(test_accuracy)
+            image = batch_x[0, :, :]
+            plt.figure(2)
+            plt.imshow(image, cmap=plt.get_cmap('gray'))
+            plt.hold(True)
+            plt.imshow(Mask, alpha=0.7)
 
-    f = open(folder+'/report'+'.txt', 'w')
-    f.write(text)
-    f.close()
+            image = batch_x[0, :, :]
+            plt.figure(3)
+            plt.imshow(image, cmap=plt.get_cmap('gray'))
+            plt.hold(True)
+            plt.imshow(prediction-prediction_m, alpha=0.7)
+
+            plt.show()
+
+        print 'mean accuracy', np.mean(test_accuracy)
+
 
 

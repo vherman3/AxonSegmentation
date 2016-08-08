@@ -10,7 +10,7 @@ class input_data:
         if type == 'train' :
             self.path = 'dataset/Train/'
             self.set_size = 34414
-        if type == 'test' :
+        if type == 'test':
             self.path = 'dataset/Test/'
             self.set_size = 17209
         self.size_image = 256
@@ -26,7 +26,7 @@ class input_data:
             if i == start:
                 batch_y = category.reshape(-1,1)
             else:
-                batch_y = np.concatenate((batch_y, category.reshape(-1,1)), axis=0)
+                batch_y = np.concatenate((batch_y, category.reshape(-1, 1)), axis=0)
         batch_y = np.concatenate((np.invert(batch_y)/255, batch_y), axis = 1)
 
         return [np.asarray(batch_x), batch_y]

@@ -26,7 +26,6 @@ data = pickle.load(open(folder +"/data/groundTruth.pkl", "rb"))
 img = data['image']
 img = exposure.equalize_hist(img)
 mask = data['mask']
-
 h, w = img.shape
 
 #######################################################################################################################
@@ -240,5 +239,4 @@ for image in data_test:
     scipy.misc.imsave(folder_test+'/classes_%s.jpeg'%i, image[1].astype(int),'jpeg')
     i+=1
 
-
-
+scipy.misc.imsave(folder_test+'/mask.jpeg', mask.astype(int),'jpeg')
