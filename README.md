@@ -1,8 +1,9 @@
-# AxonSegmentation
+# AxonSegmentation 
+
 Axon segmentation from microscopic images and based on machine learning methods.
 
-![alt tag](https://github.com/vherman3/AxonSegmentation/blob/master/SEM.png | width=100)
+<img src="https://github.com/vherman3/AxonSegmentation/blob/master/SEM.png" width="200px" height="200px" />
 
-![alt tag](https://github.com/vherman3/AxonSegmentation/blob/master/resultsDL.png | width=100)
+<img src="https://github.com/vherman3/AxonSegmentation/blob/master/Results_DL.png" width="200px" height="200px" />
 
-![alt tag](https://github.com/vherman3/AxonSegmentation/blob/master/u_net.png | width=100)
+<img src="https://github.com/vherman3/AxonSegmentation/blob/master/u_net.png" width="200px" height="200px" />
