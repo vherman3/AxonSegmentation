@@ -1,18 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/ConvNets/u_net.py" line="45" mnemonic="4" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="8a2db045-b12a-4b41-a5d2-f3830dec00b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ConvNets/apply_model.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ConvNets/im2batch.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ConvNets/Users/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ConvNets/Users/evaluation/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ConvNets/Users/learn/__init__.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/apply_model.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/dataset_construction.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/im2batch.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/input_data.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/out.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/out_mrf.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/rotation_crop.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ConvNets/u_net.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Parameters_optim.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Segmentation_scoring.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classifier.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/comparison.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/comparison/basic_method/Step_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/comparison/basic_method/Step_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/comparison/image.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/contour_detection.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/add_mask.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/groundTruth.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/groundTruth.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/image.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/initial_mask.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/initial_mask_m.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/myelin_add.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/myelins_masked.TIFF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/remove_mask.tif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data_augmentation.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/discriminative_analysis.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/features_extraction.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mrf.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/multipred.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/myelin_integration.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/myelin_seg.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/param_optim_m.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pipeline.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_12.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_13.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_14.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_15.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_16.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_17.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/classifier/clf.pkl_18.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/report.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/results.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/test_prediction.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/test_prediction_mrf.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_1/train_prediction.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_12.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_13.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_14.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_15.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_16.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_17.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/classifier/clf.pkl_18.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/report.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/results.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/test_prediction.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/test_prediction_contour.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/test_prediction_mrf.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resultsPipeline/result_2/train_prediction.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_01.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_02.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_03.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_04.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_05.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_06.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_07.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_08.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_09.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_10.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_11.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_12.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_13.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_14.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_15.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_16.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_17.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_18.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_19.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_20.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_21.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_22.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_23.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_24.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_25.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_26.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_27.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_28.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_29.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_30.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_31.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_32.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_33.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_34.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_35.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_36.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_37.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_38.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_39.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_40.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_41.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_42.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_43.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/classifier/clf.pkl_44.npy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/predict_proba_test.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/predict_test.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/predict_train.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/report.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/results.pkl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/test_prediction.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/results_myelin/result_1/test_training.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sampling.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templateMatching.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/visualization.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvNets/apply_trained_2.py" afterPath="$PROJECT_DIR$/ConvNets/apply_trained_2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvNets/dataset_construction.py" afterPath="$PROJECT_DIR$/ConvNets/dataset_construction.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvNets/input_data.py" afterPath="$PROJECT_DIR$/ConvNets/input_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvNets/u_net.py" afterPath="$PROJECT_DIR$/ConvNets/u_net.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrf.py" afterPath="$PROJECT_DIR$/mrf.py" />
     </list>
     <ignored path="AxonSegmentation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +164,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="u_net.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ConvNets/u_net.py">
+      <file leaf-file-name="u_net2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ConvNets/Users/u_net2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.3672566">
-              <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+            <state vertical-scroll-proportion="-3.9625468">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="57" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -46,10 +177,10 @@
         </entry>
       </file>
       <file leaf-file-name="apply_model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ConvNets/apply_model.py">
+        <entry file="file://$PROJECT_DIR$/ConvNets/Users/apply_model.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="225" column="22" selection-start-line="225" selection-start-column="22" selection-end-line="225" selection-end-column="22" />
+              <caret line="283" column="23" selection-start-line="283" selection-start-column="23" selection-end-line="283" selection-end-column="23" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -57,36 +188,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="im2batch.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ConvNets/im2batch.py">
+      <file leaf-file-name="visualize_optim.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_optim.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+              <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="mrf.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mrf.py">
+        <entry file="file://$PROJECT_DIR$/ConvNets/Users/mrf.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+              <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pipeline.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pipeline.py">
+      <file leaf-file-name="visualize_results.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_results.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="217" selection-end-column="33" />
+              <caret line="90" column="56" selection-start-line="90" selection-start-column="56" selection-end-line="90" selection-end-column="56" />
               <folding>
-                <element signature="e#1#14#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ConvNets/Users/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ConvNets/Users/learn/input_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="164" column="39" selection-start-line="164" selection-start-column="23" selection-end-line="164" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -114,21 +265,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Script_init.py" />
-        <option value="$PROJECT_DIR$/Segmentation_scoring.py" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/geometry_analysis.py" />
-        <option value="$PROJECT_DIR$/Comparaison.py" />
-        <option value="$PROJECT_DIR$/groundTruth.py" />
-        <option value="$PROJECT_DIR$/Parameters_optim.py" />
-        <option value="$PROJECT_DIR$/visualization.py" />
         <option value="$PROJECT_DIR$/sapling.py" />
-        <option value="$PROJECT_DIR$/features_extraction.py" />
         <option value="$PROJECT_DIR$/multipred.py" />
         <option value="$PROJECT_DIR$/classifier.py" />
         <option value="$PROJECT_DIR$/param_optim_m.py" />
         <option value="$PROJECT_DIR$/myelin_integration.py" />
-        <option value="$PROJECT_DIR$/segmentation_scoring.py" />
         <option value="$PROJECT_DIR$/contour_detection copy.py" />
         <option value="$PROJECT_DIR$/templateMatching.py" />
         <option value="$PROJECT_DIR$/myelin_seg.py" />
@@ -142,19 +283,47 @@
         <option value="$PROJECT_DIR$/ConvNets/apply_trained_weights.py" />
         <option value="$PROJECT_DIR$/ConvNets/apply_trained_2.py" />
         <option value="$PROJECT_DIR$/mrf.py" />
+        <option value="$PROJECT_DIR$/ConvNets/dataset/dataset_construction2.py" />
         <option value="$PROJECT_DIR$/ConvNets/im2batch.py" />
+        <option value="$PROJECT_DIR$/ConvNets/dataset_construction2.py" />
         <option value="$PROJECT_DIR$/ConvNets/dataset_construction.py" />
-        <option value="$PROJECT_DIR$/ConvNets/input_data.py" />
-        <option value="$PROJECT_DIR$/ConvNets/apply_model.py" />
+        <option value="$PROJECT_DIR$/ConvNets/add_myelin.py" />
+        <option value="$PROJECT_DIR$/ConvNets/input_data2.py" />
         <option value="$PROJECT_DIR$/ConvNets/u_net.py" />
+        <option value="$PROJECT_DIR$/features_extraction.py" />
+        <option value="$PROJECT_DIR$/ConvNets/apply_model.py" />
+        <option value="$PROJECT_DIR$/ConvNets/u_net2.py" />
+        <option value="$PROJECT_DIR$/ConvNets/input_data.py" />
+        <option value="$PROJECT_DIR$/ConvNets/data_construction3.py" />
+        <option value="$PROJECT_DIR$/ConvNets/extract_image.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/extract_image.py" />
+        <option value="$PROJECT_DIR$/ConvNets/onlineAugmentation.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/data_construction.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/input_data.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/visualize_optim.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/myelin_detection.py" />
+        <option value="$PROJECT_DIR$/segmentation_scoring.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/visualize_results.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/im2batch.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/learning /input_data.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/__init__.py" />
+        <option value="$PROJECT_DIR$/ConvNets/test.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/evaluation/__init__.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/learning /__init__.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/u_net2.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/apply_model.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_optim.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/mrf.py" />
+        <option value="$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_results.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="553" />
-    <option name="y" value="46" />
-    <option name="width" value="1830" />
-    <option name="height" value="1192" />
+    <option name="x" value="374" />
+    <option name="y" value="39" />
+    <option name="width" value="1824" />
+    <option name="height" value="1266" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -213,6 +382,46 @@
               <option name="myItemId" value="ConvNets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AxonSegmentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AxonSegmentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConvNets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evaluation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AxonSegmentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AxonSegmentation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ConvNets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -220,40 +429,23 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.apply_model">
-    <configuration default="false" name="tuto_tf" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.visualize_results">
+    <configuration default="false" name="u_net2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets/Users" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AxonSegmentation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/u_net.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="apply_trained_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="AxonSegmentation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/apply_trained_2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/Users/u_net2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -265,46 +457,63 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets/Users" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AxonSegmentation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/apply_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/Users/apply_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="im2batch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="visualize_results" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets/Users/evaluation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AxonSegmentation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/im2batch.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_results.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="dataset_construction" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="visualize_optim" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets/Users/evaluation" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="AxonSegmentation" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/dataset_construction.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_optim.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="mrf" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ConvNets/Users" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="AxonSegmentation" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ConvNets/Users/mrf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -432,19 +641,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.tuto_tf" />
-      <item index="1" class="java.lang.String" itemvalue="Python.apply_trained_2" />
-      <item index="2" class="java.lang.String" itemvalue="Python.apply_model" />
-      <item index="3" class="java.lang.String" itemvalue="Python.im2batch" />
-      <item index="4" class="java.lang.String" itemvalue="Python.dataset_construction" />
+      <item index="0" class="java.lang.String" itemvalue="Python.u_net2" />
+      <item index="1" class="java.lang.String" itemvalue="Python.apply_model" />
+      <item index="2" class="java.lang.String" itemvalue="Python.visualize_results" />
+      <item index="3" class="java.lang.String" itemvalue="Python.visualize_optim" />
+      <item index="4" class="java.lang.String" itemvalue="Python.mrf" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.apply_model" />
-        <item index="1" class="java.lang.String" itemvalue="Python.tuto_tf" />
-        <item index="2" class="java.lang.String" itemvalue="Python.dataset_construction" />
-        <item index="3" class="java.lang.String" itemvalue="Python.im2batch" />
-        <item index="4" class="java.lang.String" itemvalue="Python.apply_trained_2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.visualize_results" />
+        <item index="1" class="java.lang.String" itemvalue="Python.mrf" />
+        <item index="2" class="java.lang.String" itemvalue="Python.visualize_optim" />
+        <item index="3" class="java.lang.String" itemvalue="Python.u_net2" />
+        <item index="4" class="java.lang.String" itemvalue="Python.apply_model" />
       </list>
     </recent_temporary>
   </component>
@@ -507,19 +716,19 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="553" y="46" width="1830" height="1192" extended-state="0" />
+    <frame x="374" y="39" width="1824" height="1266" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32349727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22203948" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3713268" sideWeight="0.51311475" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30743524" sideWeight="0.23135965" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3713268" sideWeight="0.48688525" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.493135" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30743524" sideWeight="0.76864034" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39984226" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39933166" sideWeight="0.4961623" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -569,130 +778,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/myelin_seg.py</url>
-          <line>109</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/data/groundTruth.py</url>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/ConvNets/dataset_construction.py</url>
-          <line>241</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/ConvNets/im2batch.py</url>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/segmentation_scoring.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Parameters_optim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="119" selection-start-line="45" selection-start-column="0" selection-end-line="47" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_augmentation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sampling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018248174">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="23" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018867925">
-          <caret line="1" column="80" selection-start-line="1" selection-start-column="80" selection-end-line="1" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/multiprocessing/process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comparison.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="90" selection-start-line="44" selection-start-column="90" selection-end-line="44" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/groundTruth.pkl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14233577">
-          <caret line="51" column="58" selection-start-line="51" selection-start-column="58" selection-end-line="51" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/param_optim_m.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.2591241">
-          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/discriminative_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54379565">
-          <caret line="87" column="10" selection-start-line="86" selection-start-column="4" selection-end-line="87" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -717,53 +815,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myelin_integration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67518246">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/features_extraction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1678832">
-          <caret line="73" column="2" selection-start-line="73" selection-start-column="2" selection-end-line="73" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templateMatching.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54744524">
-          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myelin_seg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0547445">
-          <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/multiprocessing/pool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6386862">
           <caret line="566" column="0" selection-start-line="566" selection-start-column="0" selection-end-line="566" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contour_detection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1861314">
-          <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Parameters_optim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.054744527">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -802,16 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/groundTruth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58064514">
-          <caret line="48" column="45" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/framework/ops.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.012096774">
@@ -823,13 +868,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.8467152">
           <caret line="335" column="0" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/rotation_crop.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41970804">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -868,13 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/apply_trained_weights.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35502958">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/tensorflow/python/training/saver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -882,86 +913,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/apply_trained_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5029586">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multipred.py">
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/pandas/core/series.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/input_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19911504">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/dataset_construction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5973451">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mrf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+          <caret line="559" column="0" selection-start-line="559" selection-start-column="0" selection-end-line="559" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pipeline.py">
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/learn/data_construction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="217" selection-end-column="33" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.85018724">
+          <caret line="96" column="78" selection-start-line="96" selection-start-column="78" selection-end-line="96" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/segmentation_scoring.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydev_monkey_qt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036873158">
-          <caret line="67" column="98" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="98" />
+        <state vertical-scroll-proportion="0.33285093">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/im2batch.py">
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/evaluation/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/apply_model.py">
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/learn/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="225" column="22" selection-start-line="225" selection-start-column="22" selection-end-line="225" selection-end-column="22" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/learn/input_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="164" column="39" selection-start-line="164" selection-start-column="23" selection-end-line="164" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/apply_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="283" column="23" selection-start-line="283" selection-start-column="23" selection-end-line="283" selection-end-column="23" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNets/u_net.py">
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/mrf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3672566">
-          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_results.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="56" selection-start-line="90" selection-start-column="56" selection-end-line="90" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/evaluation/visualize_optim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNets/Users/u_net2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9625468">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="57" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
