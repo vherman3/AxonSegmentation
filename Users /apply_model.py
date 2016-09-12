@@ -63,7 +63,7 @@ def batch2im(predictions, positions, h_size, w_size):
 
 
 
-def apply(path, model_number, mrf=False) :
+def apply(path, model_number = 2, mrf=False) :
 
     path_img = path+'image.jpg'
     path_mask = path+'mask.jpg'
@@ -80,7 +80,7 @@ def apply(path, model_number, mrf=False) :
     n_input = image_size * image_size
     n_classes = 2
 
-    folder_model = 'dataset/model_parameters%s'%model_number
+    folder_model = 'data/model_parameters%s'%model_number
     if not os.path.exists(folder_model):
         os.makedirs(folder_model)
 
@@ -185,6 +185,7 @@ def apply(path, model_number, mrf=False) :
         biases['be2'].append(tf.Variable(tf.random_normal([num_features], stddev=math.sqrt(2.0/(9.0*float(num_features)))), name='be2-%s'%i))
 
         num_features_init = num_features
+        print num_features
 
     weights['finalconv']= tf.Variable(tf.random_normal([1, 1, num_features, n_classes]), name='finalconv-%s'%i)
     biases['finalconv_b']= tf.Variable(tf.random_normal([n_classes]), name='bfinalconv-%s'%i)
@@ -235,7 +236,7 @@ def apply(path, model_number, mrf=False) :
     threshold_error = 0.10
     y_pred = prediction.reshape(-1, 1)
 
-    folder_mrf = 'dataset/mrf_parameters'
+    folder_mrf = 'data/mrf_parameters'
     if not os.path.exists(folder_mrf):
         os.makedirs(folder_mrf)
 
@@ -270,7 +271,8 @@ def apply(path, model_number, mrf=False) :
 #---------------------------------------------------------------------------------------------------------
 
 def myelin(path):
-    command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'/Users/viherm/Desktop/myelin/\'); myelin(\'%s\');exit()\""%path
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'"+current_path+"/myelin/\'); myelin(\'%s\');exit()\""%path
     print command
     os.system(command)
 

@@ -63,7 +63,7 @@ def build_data(path_data, trainRatio = 0.80, folder_number=1):
     patches_train = patches[:-size_test]
     patches_test = patches[-size_test:]
 
-    folder = 'dataset'
+    folder = 'data'
     if not os.path.exists(folder):
         os.makedirs(folder)
 

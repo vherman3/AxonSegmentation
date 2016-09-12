@@ -49,7 +49,7 @@ def visualize_results(path) :
         score_mrf = rejectOne_score(image_init, mask.reshape(-1,1), img_mrf.reshape(-1,1), visualization=False, min_area=1, show_diffusion = True)
         Dice_mrf = dice(image_init, mask.reshape(-1, 1), img_mrf.reshape(-1,1)).mean()
 
-        headers = ["MRF", "accuracy","sensitivity", "errors", "diffusion", "Dice"]
+        headers = ["MRF", "accuracy", "sensitivity", "errors", "diffusion", "Dice"]
         table = [["False", acc, score[0], score[1], score[2], Dice],
         ["True", acc_mrf, score_mrf[0], score_mrf[1], score_mrf[2], Dice_mrf]]
 
@@ -88,4 +88,4 @@ def visualize_results(path) :
 
     plt.show()
 
-visualize_results(path='/Users/viherm/Desktop/CARS/data6/')
+#visualize_results(path='/Users/viherm/Desktop/CARS/data6/')

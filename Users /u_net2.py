@@ -4,7 +4,7 @@ import numpy as np
 import os
 import pickle
 import time
-from learn.input_data import input_data
+from learning.input_data import input_data
 
 
 # Divers variables
@@ -19,14 +19,14 @@ restore = True
 restored_model = 1
 
 current_path = os.path.dirname(os.path.abspath(__file__))
-trainingset_path = current_path+'/dataset/trainingset'
+trainingset_path = current_path+'/data/trainingset'
 
 # Display
 display = False
 
 # Results and Models
 result_number = 3
-folder_model = 'dataset/model_parameters%s'%result_number
+folder_model = 'data/model_parameters%s'%result_number
 if not os.path.exists(folder_model):
     os.makedirs(folder_model)
 
@@ -195,7 +195,7 @@ Report += '\n\n---Intermediary results---\n'
 with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
     last_epoch = 0
     if restore :
-        folder_restored_model = "dataset/model_parameters%s/"%restored_model
+        folder_restored_model = "data/model_parameters%s/"%restored_model
         saver.restore(sess, folder_restored_model+"model.ckpt")
 
         file = open(folder_restored_model+'/evolution.pkl','r')

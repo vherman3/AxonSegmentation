@@ -11,9 +11,9 @@ def visualize_learning(model_number, restore = False, restored_model=1, start_vi
     current_path = dirname(abspath(__file__))
     parent_path = dirname(current_path)
 
-    folder_model = parent_path+'/dataset/model_parameters%s'%model_number
+    folder_model = parent_path+'/data/model_parameters%s'%model_number
 
-    folder_restored_model = parent_path+"/dataset/model_parameters%s/"%restored_model
+    folder_restored_model = parent_path+"/data/model_parameters%s/"%restored_model
 
     file = open(folder_model+'/evolution.pkl','r') # learning variables : loss, accuracy, epoch
     evolution = pickle.load(file)
@@ -55,4 +55,4 @@ def visualize_learning(model_number, restore = False, restored_model=1, start_vi
     plt.show()
 
 
-visualize_learning(3, restore = True, restored_model=1, start_visu=0)
+#visualize_learning(3, restore = True, restored_model=1, start_visu=0)
