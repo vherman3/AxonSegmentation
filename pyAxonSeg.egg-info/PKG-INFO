@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: pyAxonSeg
+Version: 0.1
+Summary: Python tool for automatic axon segmentation
+Home-page: https://github.com/vherman3/AxonSegmentation
+Author: Neuropoly - Victor Herman
+Author-email: victor.herman3@gmail.com
+License: MIT
+Description: # AxonSegmentation 
+        
+        Axon segmentation with microscopic images and based on deep convolutional neural networks.
+        U-Net from Ronneberger et al. is used as classification model, an MRF is applied for the postprocessing. 
+        
+        <img src="https://github.com/vherman3/AxonSegmentation/blob/master/schema.png" width="300px" />
+        
+Keywords: muse polycortex fft eeg openbci
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
