@@ -278,10 +278,8 @@ def learn_model(trainingset_path, models_path,learning_rate = 0.0005, verbose = 
         print("Model saved in file: %s" % save_path)
         print "Optimization Finished!"
 
-def learn_mrf():
-    return
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-trainingset_path = current_path+'/data/trainingset'
-
-learn_model(trainingset_path)
+# current_path = os.path.dirname(os.path.abspath(__file__))
+# trainingset_path = current_path+'/data/trainingset'
+#
+# learn_model(trainingset_path)

@@ -5,6 +5,9 @@ import math
 from evaluation.segmentation_scoring import rejectOne_score
 from sklearn.metrics import accuracy_score
 import copy
+import os
+import pickle
+from tabulate import tabulate
 
 def mrf_map(X, Y, mu, sigma, nb_class, max_map_iter, alpha, beta):
     """
@@ -127,4 +130,65 @@ def train_mrf(label_field, feature_field, nb_class, max_map_iter, weight, thresh
         print 'No parameter changes: re-examine the learning conditions'
 
     return weight
+
+
+def learn_mrf(image_path, model_path, mrf_path):
+    from apply_model import apply_convnet
+    from sklearn import preprocessing
+    from scipy.misc import imread
+
+    path_img = image_path+'/image.jpg'
+    path_mask = image_path+'/mask.jpg'
+
+    image_init = imread(path_img, flatten=False, mode='L')
+    mask = preprocessing.binarize(imread(path_mask, flatten=False, mode='L'), threshold=125)
+    prediction = apply_convnet(image_path, model_path)
+
+    folder_mrf = mrf_path
+    if not os.path.exists(folder_mrf):
+        os.makedirs(folder_mrf)
+
+    nb_class = 2
+    max_map_iter = 10
+    alpha = 1.0
+    beta = 1.0
+    sigma_blur = 1.0
+    threshold_learning = 0.1
+    threshold_sensitivity = 0.55
+    threshold_error = 0.10
+
+    y_pred = prediction.reshape(-1, 1)
+    y_pred_train = y_pred.copy()
+    y_train = mask.reshape(-1,1)
+
+    weight = train_mrf(y_pred_train, image_init, nb_class, max_map_iter, [alpha, beta, sigma_blur], threshold_learning, y_train, threshold_sensitivity)
+
+    mrf_coef = {'weight': weight, "nb_class": nb_class, 'max_map_iter': max_map_iter, 'alpha': alpha, 'beta': beta,
+                'sigma_blur': sigma_blur, 'threshold_error': threshold_error,
+                'threshold_sensitivity': threshold_sensitivity, 'threshold_learning': threshold_learning}
+
+    with open(folder_mrf+'/mrf_parameter.pkl', 'wb') as handle:
+         pickle.dump(mrf_coef, handle)
+
+    img_mrf = run_mrf(y_pred, image_init, nb_class, max_map_iter, weight)
+    img_mrf = img_mrf == 1
+
+    #-----Results------
+    acc = accuracy_score(prediction.reshape(-1,1), mask.reshape(-1,1))
+    score = rejectOne_score(image_init, mask.reshape(-1, 1), prediction.reshape(-1,1), visualization=False, min_area=1, show_diffusion = True)
+    acc_mrf = accuracy_score(img_mrf.reshape(-1, 1), mask.reshape(-1, 1))
+    score_mrf = rejectOne_score(image_init, mask.reshape(-1,1), img_mrf.reshape(-1,1), visualization=False, min_area=1, show_diffusion = True)
+
+    headers = ["MRF", "accuracy", "sensitivity", "errors", "diffusion"]
+    table = [["False", acc, score[0], score[1], score[2]],
+    ["True", acc_mrf, score_mrf[0], score_mrf[1], score_mrf[2]]]
+
+    subtitle = '\n\n---Scores MRF---\n\n'
+    scores = tabulate(table, headers)
+    text = subtitle+scores
+    print text
+
+
+
+
 

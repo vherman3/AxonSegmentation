@@ -4,17 +4,15 @@ import os
 import pickle
 import numpy as np
 import time
-from mrf import train_mrf, run_mrf
+from mrf import run_mrf
 from scipy import io
 from scipy.misc import imread, imsave
 from sklearn import preprocessing
-import sys
 from skimage.transform import rescale
 from skimage import exposure
-from evaluation.visualize_results import visualize_results
 
 
-def im2batch(path_image,size, rescale_coeff = 1.0):
+def im2batch(path_image, size, rescale_coeff = 1.0):
 
     img = imread(path_image, flatten=False, mode='L')
     img = (rescale(img, rescale_coeff))*255
@@ -62,11 +60,12 @@ def batch2im(predictions, positions, h_size, w_size):
     return image
 
 
+def apply_convnet(path, model_path):
 
-def apply(path, models_path, model_number = 2, mrf=False) :
+    print '\n\n ---START AXON SEGMENTATION---'
 
-    path_img = path+'image.jpg'
-    path_mask = path+'mask.jpg'
+    path_img = path+'/image.jpg'
+    path_mask = path+'/mask.jpg'
 
     axon_height_train = 20
     axon_height = 20
@@ -80,7 +79,7 @@ def apply(path, models_path, model_number = 2, mrf=False) :
     n_input = image_size * image_size
     n_classes = 2
 
-    folder_model = models_path+'/model_parameters%s'%model_number
+    folder_model = model_path
     if not os.path.exists(folder_model):
         os.makedirs(folder_model)
 
@@ -200,80 +199,84 @@ def apply(path, models_path, model_number = 2, mrf=False) :
 
 
     # Launch the graph
-    with tf.Session() as sess:
-        saver.restore(sess, folder_model+"/model.ckpt")
+    sess = tf.Session()
+    saver.restore(sess, folder_model+"/model.ckpt")
 
-        for i in range(len(data)):
-            print 'iteration %s on %s'%(i, len(data))
-            batch_x = np.asarray([data[i]])
-            start = time.time()
-            p = sess.run(pred, feed_dict={x: batch_x})
-            #print time.time() - start,'s - test time'
-            prediction_m = p[:, 0].reshape(256,256)
-            prediction = p[:, 1].reshape(256,256)
+    for i in range(len(data)):
+        print 'iteration %s on %s'%(i, len(data))
+        batch_x = np.asarray([data[i]])
+        start = time.time()
+        p = sess.run(pred, feed_dict={x: batch_x})
+        #print time.time() - start,'s - test time'
+        prediction_m = p[:, 0].reshape(256,256)
+        prediction = p[:, 1].reshape(256,256)
 
-            Mask = prediction - prediction_m > 0
-            predictions.append(Mask)
-
+        Mask = prediction - prediction_m > 0
+        predictions.append(Mask)
+    sess.close()
+    tf.reset_default_graph()
 
     h_size, w_size = image_init.shape
     prediction = batch2im(predictions, positions, h_size, w_size)
 
+    return prediction
+
     #######################################################################################################################
     #                                            Mrf                                                                      #
     #######################################################################################################################
-    if mrf :
-        mask = preprocessing.binarize(imread(path_mask, flatten=False, mode='L'), threshold=125)
 
+def axon_segmentation(image_path, model_path, mrf_path):
+
+    # ------ Apply ConvNets ------- #
+    prediction = apply_convnet(image_path,model_path)
+
+    # ------ Apply mrf ------- #
     nb_class = 2
     max_map_iter = 10
-    alpha = 1.0
-    beta = 1.0
-    sigma_blur = 1.0
-    threshold_learning = 0.1
-    threshold_sensitivity = 0.55
-    threshold_error = 0.10
     y_pred = prediction.reshape(-1, 1)
+    image_init = imread(image_path+'/image.jpg', flatten=False, mode='L')
 
-    folder_mrf = models_path+'/mrf_parameters'
-    if not os.path.exists(folder_mrf):
-        os.makedirs(folder_mrf)
-
-
-    if mrf :
-        y_pred_train = y_pred.copy()
-        y_train = mask.reshape(-1,1)
-        weight = train_mrf(y_pred_train, image_init, nb_class, max_map_iter, [alpha, beta, sigma_blur], threshold_learning, y_train, threshold_sensitivity)
-        mrf_coef = {'weight':weight}
-
-        with open(folder_mrf+'/mrf_parameter.pkl', 'wb') as handle:
-             pickle.dump(mrf_coef, handle)
-    else :
-        weight = pickle.load(open(folder_mrf +'/mrf_parameter.pkl', "rb"))['weight']
-
+    folder_mrf = mrf_path
+    mrf_parameters = pickle.load(open(folder_mrf +'/mrf_parameter.pkl', "rb"))
+    weight = mrf_parameters['weight']
 
     img_mrf = run_mrf(y_pred, image_init, nb_class, max_map_iter, weight)
     img_mrf = img_mrf == 1
 
-
     # ------ Saving results ------- #
-
     results={}
     results['img_mrf'] = img_mrf
     results['prediction'] = prediction
 
-    with open(path+'results.pkl', 'wb') as handle :
+    with open(image_path+'/results.pkl', 'wb') as handle :
             pickle.dump(results, handle)
 
-    io.savemat(path+'AxonMask.mat', mdict={'prediction': img_mrf})
+    io.savemat(image_path+'/AxonMask.mat', mdict={'prediction': img_mrf})
+    imsave(image_path+'/AxonSeg.jpeg', img_mrf, 'jpeg')
 
 #---------------------------------------------------------------------------------------------------------
 
-def myelin(path):
+def myelin(path, pixel_size=0.3):
+
+    print '\n\n ---START MYELIN DETECTION---'
     current_path = os.path.dirname(os.path.abspath(__file__))
-    command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'"+current_path+"/myelin/\'); myelin(\'%s\');exit()\""%path
-    print command
+    command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'"+current_path+"\');" \
+            "addpath(genpath(\'/Users/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
     os.system(command)
+
+
+def pipeline(image_path, model_path, mrf_path, pixel_size=0.3, visualize = False):
+    print '\n\n ---START AXON-MYELIN SEGMENTATION---'
+    axon_segmentation(image_path, model_path, mrf_path)
+    myelin(image_path)
+    print '\n End of the process : see results in : ', image_path
+
+    if visualize :
+        from evaluation.visualization import visualize_results
+        visualize_results(image_path)
+
+
+
 
 
 

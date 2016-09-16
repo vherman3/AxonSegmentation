@@ -5,6 +5,7 @@ from scipy.misc import imread, imsave
 from sklearn import preprocessing
 from PIL import Image
 import numpy as np
+import random
 
 
 def extract_patch(img, mask, size):
@@ -39,7 +40,7 @@ def extract_patch(img, mask, size):
     return dataset
 
 
-def build_data(path_data, trainRatio = 0.80, folder_number=1):
+def build_data(path_data, trainingset_path, trainRatio = 0.80, folder_number=1):
 
     i = 0
     for root in os.listdir(path_data)[1:]:
@@ -60,21 +61,21 @@ def build_data(path_data, trainRatio = 0.80, folder_number=1):
     testRatio = 1-trainRatio
     size_test = int(testRatio*len(patches))
 
+    random.shuffle(patches)
     patches_train = patches[:-size_test]
     patches_test = patches[-size_test:]
 
-    folder = 'data'
-    if not os.path.exists(folder):
-        os.makedirs(folder)
+    if not os.path.exists(trainingset_path):
+        os.makedirs(trainingset_path)
 
-    folder_train = folder+''+'/Train'+str(folder_number)
+    folder_train = trainingset_path+'/Train'+str(folder_number)
 
     if os.path.exists(folder_train):
         shutil.rmtree(folder_train)
     if not os.path.exists(folder_train):
         os.makedirs(folder_train)
 
-    folder_test = folder+''+'/Test'+str(folder_number)
+    folder_test = trainingset_path+'/Test'+str(folder_number)
 
     if os.path.exists(folder_test):
         shutil.rmtree(folder_test)
@@ -94,5 +95,7 @@ def build_data(path_data, trainRatio = 0.80, folder_number=1):
         imsave(folder_test+'/classes_%s.jpeg'%k, patch[1].astype(int),'jpeg')
         k+=1
 
-build_data('/Users/viherm/Desktop/CARS', trainRatio = 0.80, folder_number = 1)
+
+#build_data('/Users/viherm/Desktop/CARS', trainRatio = 0.80, folder_number = 1)
+
 

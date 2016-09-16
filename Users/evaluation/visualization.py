@@ -6,17 +6,68 @@ from segmentation_scoring import rejectOne_score, dice
 from sklearn import preprocessing
 import os
 from tabulate import tabulate
+from os.path import dirname, abspath
+
+
+def visualize_learning(model_path, model_restored_path, restore = False, start_visu=0):
+
+    current_path = dirname(abspath(__file__))
+    parent_path = dirname(current_path)
+
+    folder_model = model_path
+
+    folder_restored_model = model_restored_path
+
+    file = open(folder_model+'/evolution.pkl','r') # learning variables : loss, accuracy, epoch
+    evolution = pickle.load(file)
+
+
+    if restore :
+        file_restored = open(folder_restored_model+'/evolution.pkl','r')
+        evolution_restored = pickle.load(file_restored)
+        last_epoch = evolution_restored['steps'][-1]
+
+        evolution_merged = {}
+        for key in ['steps','accuracy','loss'] :
+            evolution_merged[key] = evolution_restored[key]+evolution[key]
+
+        fig = plt.figure(1)
+        ax = fig.add_subplot(111)
+        ax.plot(evolution_merged['steps'][start_visu:], evolution_merged['accuracy'][start_visu:], '-', label = 'accuracy')
+        plt.ylabel('Accuracy')
+        plt.ylim(ymin = 0.7)
+        ax2 = ax.twinx()
+        ax2.axvline(last_epoch, color='k', linestyle='--')
+        plt.title('Evolution merged (before and after restauration')
+        ax2.plot(evolution_merged['steps'][start_visu:], evolution_merged['loss'][start_visu:], '-r', label = 'loss')
+        plt.ylabel('Loss')
+        plt.ylim(ymax = 100)
+        plt.xlabel('Epoch')
+
+    fig = plt.figure(2)
+    ax = fig.add_subplot(111)
+    ax.plot(evolution['steps'][start_visu:], evolution['accuracy'][start_visu:], '-', label = 'accuracy')
+    plt.ylabel('Accuracy')
+    plt.ylim(ymin = 0.7)
+    ax2 = ax.twinx()
+    plt.title('Accuracy and loss evolution')
+    ax2.plot(evolution['steps'][start_visu:], evolution['loss'][start_visu:], '-r', label = 'loss')
+    plt.ylabel('Loss')
+    plt.ylim(ymax = 100)
+    plt.xlabel('Epoch')
+    plt.show()
+
 
 
 def visualize_results(path) :
 
-    path_img = path+'image.jpg'
+    path_img = path+'/image.jpg'
     Mask = False
 
     if not 'results.pkl' in os.listdir(path):
         print 'results not present'
 
-    file = open(path+'results.pkl','r')
+    file = open(path+'/results.pkl','r')
     res = pickle.load(file)
 
     img_mrf = res['img_mrf']
@@ -39,15 +90,15 @@ def visualize_results(path) :
 
     if 'mask.jpg' in os.listdir(path):
         Mask = True
-        path_mask = path+'mask.jpg'
+        path_mask = path+'/mask.jpg'
         mask = preprocessing.binarize(imread(path_mask, flatten=False, mode='L'), threshold=125)
 
         acc = accuracy_score(prediction.reshape(-1,1), mask.reshape(-1,1))
         score = rejectOne_score(image_init, mask.reshape(-1, 1), prediction.reshape(-1,1), visualization=False, min_area=1, show_diffusion = True)
-        Dice = dice(image_init, mask.reshape(-1, 1), prediction.reshape(-1,1)).mean()
+        Dice = dice(image_init, mask.reshape(-1, 1), prediction.reshape(-1,1))['dice'].mean()
         acc_mrf = accuracy_score(img_mrf.reshape(-1, 1), mask.reshape(-1, 1))
         score_mrf = rejectOne_score(image_init, mask.reshape(-1,1), img_mrf.reshape(-1,1), visualization=False, min_area=1, show_diffusion = True)
-        Dice_mrf = dice(image_init, mask.reshape(-1, 1), img_mrf.reshape(-1,1)).mean()
+        Dice_mrf = dice(image_init, mask.reshape(-1, 1), img_mrf.reshape(-1,1))['dice'].mean()
 
         headers = ["MRF", "accuracy", "sensitivity", "errors", "diffusion", "Dice"]
         table = [["False", acc, score[0], score[1], score[2], Dice],
@@ -58,12 +109,12 @@ def visualize_results(path) :
         text = subtitle2+scores
         print text
 
-        file = open(path+"Report_results.txt", 'w')
+        file = open(path+"/Report_results.txt", 'w')
         file.write(text)
         file.close()
 
     if 'myelin.jpg' in os.listdir(path):
-        path_myelin = path + 'myelin.jpg'
+        path_myelin = path + '/myelin.jpg'
         myelin = preprocessing.binarize(imread(path_myelin, flatten=False, mode='L'), threshold=125)
 
 
@@ -87,5 +138,3 @@ def visualize_results(path) :
             plt.imshow(myelin, alpha=0.7)
 
     plt.show()
-
-#visualize_results(path='/Users/viherm/Desktop/CARS/data6/')
