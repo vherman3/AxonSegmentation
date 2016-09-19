@@ -12,7 +12,14 @@ from skimage.transform import rescale
 from skimage import exposure
 
 
-def im2batch(path_image, size, rescale_coeff = 1.0):
+def im2batch(path_image, size = 256, rescale_coeff=1.0):
+
+    """
+    :param path_image: path of the folder with the image to segment. It must include image.jpg and optionaly mask.jpg (the ground truth)
+    :param size: size of the patches to extract (must be the same as used in the learning)
+    :param rescale_coeff:
+    :return:
+    """
 
     img = imread(path_image, flatten=False, mode='L')
     img = (rescale(img, rescale_coeff))*255
@@ -70,7 +77,6 @@ def apply_convnet(path, model_path):
     axon_height_train = 20
     axon_height = 20
 
-    #rescale_coeff = 1
     rescale_coeff = float(axon_height_train)/axon_height
 
     batch_size = 1
@@ -82,6 +88,14 @@ def apply_convnet(path, model_path):
     folder_model = model_path
     if not os.path.exists(folder_model):
         os.makedirs(folder_model)
+
+    if os.path.exists(folder_model+'/hyperparameters.pkl'):
+        print 'hyperparameters detected in the model'
+        hyperparameters = pickle.load(open(folder_model +'/hyperparameters.pkl', "rb"))
+        depth = hyperparameters['depth']
+        image_size = hyperparameters['image_size']
+
+
 
     x = tf.placeholder(tf.float32, shape=(batch_size, image_size, image_size))
     y = tf.placeholder(tf.float32, shape=(batch_size*n_input, n_classes))
@@ -257,11 +271,18 @@ def axon_segmentation(image_path, model_path, mrf_path):
 #---------------------------------------------------------------------------------------------------------
 
 def myelin(path, pixel_size=0.3):
+    """
+    :param path: folder of the data, must include the segmentation mask AxonMask.mat
+    :param pixel_size:
+    :return: no return
+
+    The segmentation mask of the myelin is saved in the folder of the data
+    """
 
     print '\n\n ---START MYELIN DETECTION---'
     current_path = os.path.dirname(os.path.abspath(__file__))
     command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'"+current_path+"\');" \
-            "addpath(genpath(\'/Users/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
+            "addpath(genpath(\'/AxonSeg/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
     os.system(command)
 
 

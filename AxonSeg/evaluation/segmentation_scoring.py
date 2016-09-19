@@ -7,11 +7,19 @@ import pandas as pd
 
 
 def segment_score(img, y_true, y_pred, visualization=False, min_area=10):
-
     """
-    Calculates segmentation score by counting centroid of predicted regions which are or are not into true regions
+
+    :param img:
+    :param y_true:
+    :param y_pred:
+    :param visualization:
+    :param min_area:
+    :return:
+
+    Calculates segmentation score by counting centroids of predicted regions which are or are not into true regions
     Returns sensitivity (TP/P), errors (FP/P) and diffusion
     """
+
 
     h, w = img.shape
     im_true = y_true.reshape(h, w)
@@ -173,7 +181,6 @@ def dice(img,y_true,y_pred):
         if im_true[(centroid[0], centroid[1])] == 1:
             for x_true in regions_true:
                if centroid in x_true.coords:
-                   #we compute dice score
                    A = np.zeros((img.shape[0], img.shape[1]))
                    B = np.zeros((img.shape[0], img.shape[1]))
 

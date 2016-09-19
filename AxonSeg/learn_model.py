@@ -7,8 +7,7 @@ import time
 from learning.input_data import input_data
 
 
-def learn_model(trainingset_path, models_path,learning_rate = 0.0005, verbose = 1, restore = True, restored_model = 1,
-                ):
+def learn_model(trainingset_path, model_path, model_restored_path = None, learning_rate = 0.0005, verbose = 1):
 
     # Divers variables
     Loss = []
@@ -19,15 +18,9 @@ def learn_model(trainingset_path, models_path,learning_rate = 0.0005, verbose = 
 
     # Training or Predicting
     restore = True
-    restored_model = 1
-
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    #trainingset_path = current_path+'/data/trainingset'
-
 
     # Results and Models
-    result_number = 3
-    folder_model = models_path + '/model_parameters%s'%result_number
+    folder_model = model_path
     if not os.path.exists(folder_model):
         os.makedirs(folder_model)
 
@@ -41,9 +34,13 @@ def learn_model(trainingset_path, models_path,learning_rate = 0.0005, verbose = 
     dropout = 0.75
     depth = 6
 
+    hyperparameters = {'depth': depth,'dropout': dropout, 'image_size': image_size,
+                       'model_restored_path': model_restored_path, 'restore': restore}
+    with open(folder_model+'/hyperparameters.pkl', 'wb') as handle :
+            pickle.dump(hyperparameters, handle)
+
     # Optimization Parameters
     batch_size = 1
-    #learning_rate = 0.0005
     training_iters = 500000
     epoch_size = 200
 
@@ -54,8 +51,7 @@ def learn_model(trainingset_path, models_path,learning_rate = 0.0005, verbose = 
     Report += '\n\n---PARAMETERS---\n'
     Report += 'learning_rate : '+ str(learning_rate)+'; \n batch_size :  ' + str(batch_size) +';\n depth :  ' + str(depth) \
             +';\n epoch_size: ' + str(epoch_size)+';\n dropout :  ' + str(dropout)+';\n restore :  ' + str(restore)\
-            +';\n (if model restored) restored_model : ' + str(restored_model)
-
+            +';\n (if model restored) restored_model :' + str(model_restored_path)
 
     data_train = input_data(trainingset_path=trainingset_path, type='train')
     data_test = input_data(trainingset_path=trainingset_path, type='test')
@@ -193,9 +189,9 @@ def learn_model(trainingset_path, models_path,learning_rate = 0.0005, verbose = 
 
     with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as sess:
         last_epoch = 0
-        if restore :
-            folder_restored_model = models_path+"/model_parameters%s/"%restored_model
-            saver.restore(sess, folder_restored_model+"model.ckpt")
+        if model_restored_path :
+            folder_restored_model = model_restored_path
+            saver.restore(sess, folder_restored_model+"/model.ckpt")
 
             file = open(folder_restored_model+'/evolution.pkl','r')
             evolution_restored = pickle.load(file)
@@ -277,9 +273,3 @@ def learn_model(trainingset_path, models_path,learning_rate = 0.0005, verbose = 
 
         print("Model saved in file: %s" % save_path)
         print "Optimization Finished!"
-
-
-# current_path = os.path.dirname(os.path.abspath(__file__))
-# trainingset_path = current_path+'/data/trainingset'
-#
-# learn_model(trainingset_path)

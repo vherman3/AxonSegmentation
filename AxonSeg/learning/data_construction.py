@@ -9,6 +9,12 @@ import random
 
 
 def extract_patch(img, mask, size):
+    """
+    :param img: image represented by a numpy-array
+    :param mask: groundtruth of the segmentation
+    :param size: size of the patches to extract
+    :return: a list of pairs [patch, ground_truth] with a very low overlapping.
+    """
     h, w = img.shape
 
     q_h, r_h = divmod(h, size)
@@ -40,7 +46,18 @@ def extract_patch(img, mask, size):
     return dataset
 
 
-def build_data(path_data, trainingset_path, trainRatio = 0.80, folder_number=1):
+def build_data(path_data, trainingset_path, trainRatio = 0.80):
+    """
+    :param path_data: folder including all images used for the training. Each image is represented by a a folder
+    including image.jpg and mask.jpg (ground truth)
+    :param trainingset_path: path of the resulting trainingset
+    :param trainRatio: ratio of the train over the test. (High ratio : good learning but poor estimation of the performance)
+    :return: no return
+
+    Every 256 by 256 patches are extracted from the images with a very low overlapping.
+    They are regrouped by category folder : \Train and \Test.
+    Each data is represented by the patch, image_i.jpg, and its groundtruth, classes_i.jpg
+    """
 
     i = 0
     for root in os.listdir(path_data)[1:]:
@@ -68,14 +85,14 @@ def build_data(path_data, trainingset_path, trainRatio = 0.80, folder_number=1):
     if not os.path.exists(trainingset_path):
         os.makedirs(trainingset_path)
 
-    folder_train = trainingset_path+'/Train'+str(folder_number)
+    folder_train = trainingset_path+'/Train'
 
     if os.path.exists(folder_train):
         shutil.rmtree(folder_train)
     if not os.path.exists(folder_train):
         os.makedirs(folder_train)
 
-    folder_test = trainingset_path+'/Test'+str(folder_number)
+    folder_test = trainingset_path+'/Test'
 
     if os.path.exists(folder_test):
         shutil.rmtree(folder_test)
@@ -95,7 +112,5 @@ def build_data(path_data, trainingset_path, trainRatio = 0.80, folder_number=1):
         imsave(folder_test+'/classes_%s.jpeg'%k, patch[1].astype(int),'jpeg')
         k+=1
 
-
-#build_data('/Users/viherm/Desktop/CARS', trainRatio = 0.80, folder_number = 1)
 
 

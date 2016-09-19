@@ -9,7 +9,17 @@ from tabulate import tabulate
 from os.path import dirname, abspath
 
 
-def visualize_learning(model_path, model_restored_path, restore = False, start_visu=0):
+def visualize_learning(model_path, model_restored_path = None, start_visu=0):
+    """
+    :param model_path: path of the folder including the model parameters .ckpt
+    :param model_restored_path: if the model is initialized by another, path of its folder
+    :param start_visu: first iterations can reach extreme values, start_visu set the start of the visualization
+    :return: no return
+
+    figure(1) represent the evolution of the loss and the accuracy evaluated on the test set along the learning process
+    figure(2) if learning initialized by another, merging of the two representations
+
+    """
 
     current_path = dirname(abspath(__file__))
     parent_path = dirname(current_path)
@@ -21,8 +31,7 @@ def visualize_learning(model_path, model_restored_path, restore = False, start_v
     file = open(folder_model+'/evolution.pkl','r') # learning variables : loss, accuracy, epoch
     evolution = pickle.load(file)
 
-
-    if restore :
+    if model_restored_path:
         file_restored = open(folder_restored_model+'/evolution.pkl','r')
         evolution_restored = pickle.load(file_restored)
         last_epoch = evolution_restored['steps'][-1]
@@ -60,6 +69,14 @@ def visualize_learning(model_path, model_restored_path, restore = False, start_v
 
 
 def visualize_results(path) :
+    """
+    :param path: path of the folder including the data and the results obtained after by the segmentation process.
+    :return: no return
+    if there is a mask (ground truth) in the folder, scores are calculated : sensitivity, errors and dice
+    figure(1) segmentation without mrf
+    figure(2) segmentation with mrf
+    if there is myelin.jpg in the folder, myelin and image, myelin and axon segmentated, myelin and groundtruth are represented
+    """
 
     path_img = path+'/image.jpg'
     Mask = False

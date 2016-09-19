@@ -1,6 +1,7 @@
 function [] = myelin( path )
 
 %addpath(genpath('/Users/viherm/axon_segmentation/code'))
+
 cd (path)
 
 path_Mask = 'AxonMask';
@@ -15,6 +16,7 @@ AxSeg = prediction;
 PixelSize = 0.3;
 
 %Myelin Segmentation
+
 [AxSeg_rb,~]=RemoveBorder(AxSeg,PixelSize);
 backBW=AxSeg & ~AxSeg_rb; % backBW = axons that have been removed by RemoveBorder
 [im_out] = myelinInitialSegmention(im_in, AxSeg_rb, backBW,0,1,PixelSize);
