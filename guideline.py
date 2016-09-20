@@ -23,12 +23,13 @@ build_data(data_path, trainset_path, trainRatio=0.80)
 #
 # #----------------------Learn MRF---------------------#
 # from AxonSeg.mrf import learn_mrf
-# data_path = '/Users/viherm/Desktop/CARS/data3'
+# data_path = ['/Users/viherm/Desktop/CARS/data3','/Users/viherm/Desktop/CARS/data4']
+#
 #
 # model_path_new = '/Users/viherm/Desktop/AxonSegmentation/AxonSeg/data/models/new_model'
 # mrf_path = model_path_new
 #
-# learn_mrf(image_path = data_path, mrf_path = mrf_path)
+# learn_mrf(image_paths = data_path, mrf_path = mrf_path)
 #
 # #----------------------Apply model + MRF---------------------#
 # from AxonSeg.apply_model import axon_segmentation

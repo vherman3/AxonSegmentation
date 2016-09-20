@@ -33,9 +33,14 @@ def test_learning():
     model_path = '/Users/viherm/Desktop/AxonSegmentation/AxonSeg/data/models/model_parameters3'
     model_restored_path = '/Users/viherm/Desktop/AxonSegmentation/AxonSeg/data/models/model_parameters1'
     mrf_path = '/Users/viherm/Desktop/AxonSegmentation/AxonSeg/data/models/model_parameters3'
-    learn_mrf(image_path, model_path, mrf_path)
 
-test_prediction()
+    images_path_mrf = ['/Users/viherm/Desktop/CARS/data2', '/Users/viherm/Desktop/CARS/data5',  '/Users/viherm/Desktop/CARS/data7',  '/Users/viherm/Desktop/CARS/data3']
+    learn_mrf(image_paths = images_path_mrf, model_path = model_path, mrf_path = mrf_path)
+
+test_learning()
+
+
+
 
 
 

@@ -11,17 +11,14 @@ from skimage.transform import rescale
 from skimage import exposure
 
 
-def im2batch(path_image, size = 256, rescale_coeff=1.0):
+def im2batch(path_image, size=256):
     """
     :param path_image: path of the folder with the image to segment. It must include image.jpg and optionaly mask.jpg (the ground truth)
     :param size: size of the patches to extract (must be the same as used in the learning)
-    :param rescale_coeff:
     :return:
     """
 
     img = imread(path_image, flatten=False, mode='L')
-    img = (rescale(img, rescale_coeff))*255
-    img = img.astype(int)
     h, w = img.shape
 
     q_h, r_h = divmod(h, size)
@@ -208,7 +205,7 @@ def apply_convnet(path, model_path, pixel_size = 0.3):
     saver = tf.train.Saver(tf.all_variables())
 
     # Image to batch
-    image_init, data, positions = im2batch(path_img, 256, rescale_coeff=rescale_coeff)
+    image_init, data, positions = im2batch(path_img, 256)
     predictions = []
 
     # Launch the graph
@@ -239,7 +236,7 @@ def apply_convnet(path, model_path, pixel_size = 0.3):
     #                                            Mrf                                                                      #
     #######################################################################################################################
 
-def axon_segmentation(image_path, model_path, mrf_path):
+def axon_segmentation(image_path, model_path, mrf_path, pixel_size = 0.3):
     """
     :param image_path: folder of the image to segment. Must contain image.jpg
     :param model_path: folder of the model of segmentation. Must contain model.ckpt
