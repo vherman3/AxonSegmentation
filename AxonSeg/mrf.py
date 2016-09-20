@@ -9,6 +9,7 @@ import os
 import pickle
 from tabulate import tabulate
 
+
 def mrf_map(X, Y, mu, sigma, nb_class, max_map_iter, alpha, beta):
     """
         Goal:       Run the MRF_MAP_ICM process
@@ -25,8 +26,6 @@ def mrf_map(X, Y, mu, sigma, nb_class, max_map_iter, alpha, beta):
     global_nrj = np.zeros((im_x * im_y, nb_class))
     sum_nrj_map = []
     neigh_mask = beta * np.asarray([[0, 1, 0], [1, 0, 1], [0, 1, 0]])
-    #neigh_mask = beta * np.asarray([[0, 0, 1, 0, 0], [0, 1, 1, 1, 0], [1, 1, 0, 1, 1], [0, 1, 1, 1, 0], [0, 0, 1, 0, 0]])
-    #neigh_mask = beta * np.asarray([[0, 0, 0, 1, 0, 0, 0], [0, 0, 1, 1, 1, 0, 0], [0, 1, 1, 1, 1, 1, 0], [1, 1, 1, 0, 1, 1, 1], [0, 1, 1, 1, 1, 1, 0], [0, 0, 1, 1, 1, 0, 0], [0, 0, 0, 1, 0, 0, 0]])
 
     for it in range(max_map_iter):
         unary_nrj = np.copy(global_nrj)
@@ -133,6 +132,13 @@ def train_mrf(label_field, feature_field, nb_class, max_map_iter, weight, thresh
 
 
 def learn_mrf(image_path, model_path, mrf_path):
+    """
+    :param image_path:
+    :param model_path:
+    :param mrf_path:
+    :return:
+    """
+
     from apply_model import apply_convnet
     from sklearn import preprocessing
     from scipy.misc import imread

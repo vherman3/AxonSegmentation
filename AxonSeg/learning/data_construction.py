@@ -1,10 +1,7 @@
 import os
-import pickle
 import shutil
 from scipy.misc import imread, imsave
 from sklearn import preprocessing
-from PIL import Image
-import numpy as np
 import random
 
 

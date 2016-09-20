@@ -1,6 +1,5 @@
 from skimage import exposure
 from skimage.transform import rescale
-import numpy
 from scipy.ndimage.interpolation import map_coordinates
 from scipy.ndimage.filters import gaussian_filter
 from scipy.misc import imread
@@ -9,14 +8,19 @@ import cv2
 import numpy as np
 import random
 import os
-import matplotlib.pyplot as plt
-
 
 #######################################################################################################################
-#                                                     Some augmentation strategies                                    #
+#                                                Data Augmentation                                                    #
 #######################################################################################################################
 
 def extract_patch(img,mask,size):
+    """
+    :param img: image represented by a numpy-array
+    :param mask: groundtruth of the segmentation
+    :param size: size of the patches to extract
+    :return: a list of pairs [patch, ground_truth] with a very low overlapping.
+    """
+
     h, w = img.shape
 
     q_h, r_h = divmod(h, size)
@@ -49,6 +53,10 @@ def extract_patch(img,mask,size):
 
 
 def flipped(patch):
+    """
+    :param patch: [image,mask]
+    :return: random vertical and horizontal flipped [image,mask]
+    """
     s = np.random.binomial(1, 0.5, 1)
     image = patch[0]
     gt = patch[1]
@@ -61,9 +69,17 @@ def flipped(patch):
 
 
 def elastic_transform(image, gt, alpha, sigma, random_state=None):
+    """
+    :param image: image
+    :param gt: ground truth
+    :param alpha: deformation coefficient (high alpha -> strong deformation)
+    :param sigma: std of the gaussian filter. (high sigma -> smooth deformation)
+    :param random_state:
+    :return: deformation of the pair [image,mask]
+    """
 
     if random_state is None:
-        random_state = numpy.random.RandomState(None)
+        random_state = np.random.RandomState(None)
 
     shape = image.shape
 
@@ -79,8 +95,8 @@ def elastic_transform(image, gt, alpha, sigma, random_state=None):
     dx = gaussian_filter(deformations_x, sigma, mode="constant", cval=0) * alpha
     dy = gaussian_filter(deformations_y, sigma, mode="constant", cval=0) * alpha
 
-    x, y = numpy.meshgrid(numpy.arange(shape[0]), numpy.arange(shape[1]))
-    indices = numpy.reshape(y+dy, (-1, 1)), numpy.reshape(x+dx, (-1, 1))
+    x, y = np.meshgrid(np.arange(shape[0]), np.arange(shape[1]))
+    indices = np.reshape(y+dy, (-1, 1)), np.reshape(x+dx, (-1, 1))
 
     elastic_image = map_coordinates(image, indices, order=1).reshape(shape)
     elastic_gt = map_coordinates(gt, indices, order=1).reshape(shape)
@@ -90,15 +106,23 @@ def elastic_transform(image, gt, alpha, sigma, random_state=None):
 
 
 def elastic(patch):
+    """
+    :param patch: [image,mask]
+    :return: random deformation of the pair [image,mask]
+    """
     alpha = random.choice([1,2,3,4,5,6,7,8,9])
-    elas = elastic_transform(patch[0],patch[1], alpha = alpha, sigma = 4)
-    return elas
+    patch_deformed = elastic_transform(patch[0],patch[1], alpha = alpha, sigma = 4)
+    return patch_deformed
 
 
-def shifting(patch, size_shift):
-
-    img = np.pad(patch[0],size_shift,mode = "reflect")
-    mask = np.pad(patch[1],size_shift,mode = "reflect")
+def shifting(patch):
+    """
+    :param patch: [image,mask]
+    :return: random shifting of the pair [image,mask]
+    """
+    size_shift = 10
+    img = np.pad(patch[0],size_shift, mode = "reflect")
+    mask = np.pad(patch[1],size_shift, mode = "reflect")
     begin_h = np.random.randint(2*size_shift-1)
     begin_w = np.random.randint(2*size_shift-1)
     shifted_image = img[begin_h:,begin_w:]
@@ -109,6 +133,14 @@ def shifting(patch, size_shift):
 
 
 def resc(patch):
+    """
+    :param patch:  [image,mask]
+    :return: random rescaling of the pair [image,mask]
+
+    --- Rescaling reinforces axons size diversity ---
+    """
+
+
     s = random.choice([0.5, 0.75, 1.0, 1.5, 2.0])
     data_rescale=[]
     for scale in s:
@@ -200,11 +232,14 @@ def rotate_image(image, angle):
     return result
 
 
+def random_rotation(patch):
+    """
+    :param patch: [image, mask]
+    :return: random rotation of the pair [image,mask]
+    """
 
-def random_rotation(img, mask, size):
-
-    img = np.pad(img,190,mode = "reflect")
-    mask = np.pad(mask,190,mode = "reflect")
+    img = np.pad(patch[0],190,mode = "reflect")
+    mask = np.pad(patch[1],190,mode = "reflect")
     angle = np.random.uniform(5, 89, 1)
 
     image_rotated = rotate_image(img, angle)
@@ -218,24 +253,34 @@ def random_rotation(img, mask, size):
     return [image_rotated_cropped, gt_rotated_cropped]
 
 
-def augmentation(patch,size = 256):
-    patch = shifting(patch,10)
-    patch = random_rotation(patch[0], patch[1], size = 256)
+def augmentation(patch):
+    """
+    :param patch: [image,mask]
+    :param size: application of the random transformations to the pair [image,mask]
+    :return: application of the random transformations to the pair [image,mask]
+    """
+    patch = shifting(patch)
+    patch = random_rotation(patch)
     patch = elastic(patch)
     patch = flipped(patch)
     return patch
 
 
 #######################################################################################################################
-#                                                     Some augmentation strategies                                    #
+#                                             Feeding data for the network                                            #
 #######################################################################################################################
-
 class input_data:
+    """
+    Data to feed the learning/testing of the CNN
+    """
+
     def __init__(self, trainingset_path, type = 'train'):
-        if type == 'train' :
+
+        if type == 'train' : # Data for the train
             self.path = trainingset_path+'/Train/'
             self.set_size = len([f for f in os.listdir(self.path) if ('image' in f)])
-        if type == 'test':
+
+        if type == 'test': # Data for the test
             self.path = trainingset_path+'/Test/'
             self.set_size = len([f for f in os.listdir(self.path) if ('image' in f)])
 
@@ -244,9 +289,20 @@ class input_data:
         self.batch_start = 0
 
     def set_batch_start(self, start = 0):
-        self.batch_start = 0
+        """
+        :param start: starting indice of the data reading by the network
+        :return:
+        """
+        self.batch_start = start
+
 
     def next_batch(self, batch_size, rnd = False, augmented_data = True):
+        """
+        :param batch_size: size of the batch to feed the network
+        :param rnd: if True, batch is randomly taken into the training set
+        :param augmented_data: if True, each patch of the batch is randomly transformed as a data augmentation process
+        :return: The pair [batch_x (data), batch_y (prediction)] to feed the network
+        """
         batch_x = []
         for i in range(batch_size) :
             if rnd :
@@ -258,19 +314,15 @@ class input_data:
                     self.batch_start= 0
 
             image = imread(self.path + 'image_%s.jpeg' % indice, flatten=False, mode='L')
-            image = exposure.equalize_hist(image)
-            image = (image - np.mean(image))/np.std(image)
 
+            #-----PreProcessing --------
+            image = exposure.equalize_hist(image) # histogram equalization
+            image = (image - np.mean(image))/np.std(image) # data whitening
+            #---------------------------
             category = preprocessing.binarize(imread(self.path + 'classes_%s.jpeg' % indice, flatten=False, mode='L'), threshold=125)
 
             if augmented_data :
                 [image, category] = augmentation([image, category])
-
-            # plt.figure(1)
-            # plt.imshow(image, cmap=plt.get_cmap('gray'))
-            # plt.hold(True)
-            # plt.imshow(category, alpha=0.7)
-            # plt.show()
 
             batch_x.append(image)
             if i == 0:
@@ -284,9 +336,4 @@ class input_data:
     def read_batch(self, batch_y, size_batch):
         images = batch_y.reshape(size_batch, self.size_image, self.size_image, self.n_labels)
         return images
-
-
-# data_train = input_data(dataset_number=1,type = 'train')
-# for i in range(1,100):
-#     data_train.next_batch(batch_size=1, rnd = False, augmented_data=True)
 

@@ -17,7 +17,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='pyAxonSeg',
+    name='AxonSeg',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -76,7 +76,7 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['matplotlib', 'numpy', 'scipy', 'scikit-image', 'scikit-learn'],
+    install_requires=['matplotlib', 'numpy', 'scipy', 'scikit-image', 'scikit-learn', 'tabulate'],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
@@ -92,7 +92,7 @@ setup(
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
-    package_data={'Users': ['myelin.m']},
+    package_data={'AxonSeg': ['myelin.m']},
 
     include_package_data=True,
 

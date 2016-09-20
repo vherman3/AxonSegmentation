@@ -7,13 +7,11 @@ import time
 from mrf import run_mrf
 from scipy import io
 from scipy.misc import imread, imsave
-from sklearn import preprocessing
 from skimage.transform import rescale
 from skimage import exposure
 
 
 def im2batch(path_image, size = 256, rescale_coeff=1.0):
-
     """
     :param path_image: path of the folder with the image to segment. It must include image.jpg and optionaly mask.jpg (the ground truth)
     :param size: size of the patches to extract (must be the same as used in the learning)
@@ -67,12 +65,16 @@ def batch2im(predictions, positions, h_size, w_size):
     return image
 
 
-def apply_convnet(path, model_path):
+def apply_convnet(path, model_path, pixel_size = 0.3):
+    """
+    :param path: folder of the image to segment. Must contain image.jpg
+    :param model_path: folder of the model of segmentation. Must contain model.ckpt
+    :return:
+    """
 
     print '\n\n ---START AXON SEGMENTATION---'
 
     path_img = path+'/image.jpg'
-    path_mask = path+'/mask.jpg'
 
     axon_height_train = 20
     axon_height = 20
@@ -94,8 +96,6 @@ def apply_convnet(path, model_path):
         hyperparameters = pickle.load(open(folder_model +'/hyperparameters.pkl', "rb"))
         depth = hyperparameters['depth']
         image_size = hyperparameters['image_size']
-
-
 
     x = tf.placeholder(tf.float32, shape=(batch_size, image_size, image_size))
     y = tf.placeholder(tf.float32, shape=(batch_size*n_input, n_classes))
@@ -211,7 +211,6 @@ def apply_convnet(path, model_path):
     image_init, data, positions = im2batch(path_img, 256, rescale_coeff=rescale_coeff)
     predictions = []
 
-
     # Launch the graph
     sess = tf.Session()
     saver.restore(sess, folder_model+"/model.ckpt")
@@ -227,6 +226,7 @@ def apply_convnet(path, model_path):
 
         Mask = prediction - prediction_m > 0
         predictions.append(Mask)
+
     sess.close()
     tf.reset_default_graph()
 
