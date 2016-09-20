@@ -15,7 +15,7 @@ def test_prediction():
 
     visualize_learning(model_path, model_restored_path, start_visu=0)
 
-    image_path = '/Users/viherm/Desktop/CARS/data%s'%6
+    image_path = '/Users/viherm/Desktop/CARS/data%s'%4
 
     pipeline(image_path, model_path, mrf_path)
     visualize_results(image_path)

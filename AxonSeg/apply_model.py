@@ -69,7 +69,7 @@ def apply_convnet(path, model_path, pixel_size = 0.3):
     """
     :param path: folder of the image to segment. Must contain image.jpg
     :param model_path: folder of the model of segmentation. Must contain model.ckpt
-    :return:
+    :return: prediction, the mask of the segmentation
     """
 
     print '\n\n ---START AXON SEGMENTATION---'
@@ -240,6 +240,17 @@ def apply_convnet(path, model_path, pixel_size = 0.3):
     #######################################################################################################################
 
 def axon_segmentation(image_path, model_path, mrf_path):
+    """
+    :param image_path: folder of the image to segment. Must contain image.jpg
+    :param model_path: folder of the model of segmentation. Must contain model.ckpt
+    :param mrf_path: folder of the mrf parameters.  Must contain mrf_parameter.pkl
+    :return: no return
+
+    Results including the prediction and the prediction associated with the mrf are saved in the image_path
+    AxonMask.mat is saved in the image_path to feed the detection of Myelin
+    /AxonSeg.jpeg is saved in the image_path
+
+    """
 
     # ------ Apply ConvNets ------- #
     prediction = apply_convnet(image_path,model_path)
@@ -276,23 +287,33 @@ def myelin(path, pixel_size=0.3):
     :param pixel_size:
     :return: no return
 
+    Myelin is Segmented by the AxonSegmentation Toolbox (NeuroPoly)
     The segmentation mask of the myelin is saved in the folder of the data
     """
 
     print '\n\n ---START MYELIN DETECTION---'
     current_path = os.path.dirname(os.path.abspath(__file__))
     command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'"+current_path+"\');" \
-            "addpath(genpath(\'/AxonSeg/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
+            "addpath(genpath(\'/Users/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
     os.system(command)
 
 
-def pipeline(image_path, model_path, mrf_path, pixel_size=0.3, visualize = False):
+def pipeline(image_path, model_path, mrf_path, pixel_size=0.3, visualize=False):
+    """
+    :param image_path: : folder of the data, must include image.jpg
+    :param model_path :  folder of the model of segmentation. Must contain model.ckpt
+    :param mrf_path: folder of the mrf parameters.  Must contain mrf_parameter.pkl
+    :param pixel_size:
+    :param visualize: if True, visualization of the results is runned. (If a groundtruth is in image_path, scores are calculated)
+    :return:
+    """
+
     print '\n\n ---START AXON-MYELIN SEGMENTATION---'
     axon_segmentation(image_path, model_path, mrf_path)
     myelin(image_path)
     print '\n End of the process : see results in : ', image_path
 
-    if visualize :
+    if visualize:
         from evaluation.visualization import visualize_results
         visualize_results(image_path)
 

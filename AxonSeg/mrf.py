@@ -133,9 +133,9 @@ def train_mrf(label_field, feature_field, nb_class, max_map_iter, weight, thresh
 
 def learn_mrf(image_path, model_path, mrf_path):
     """
-    :param image_path:
-    :param model_path:
-    :param mrf_path:
+    :param image_path : folder of the data to train the mrf, must include image.jpg
+    :param model_path : folder of the model to bring an initial segmentation
+    :param mrf_path : folder of the mrf to
     :return:
     """
 
@@ -180,6 +180,7 @@ def learn_mrf(image_path, model_path, mrf_path):
     img_mrf = img_mrf == 1
 
     #-----Results------
+
     acc = accuracy_score(prediction.reshape(-1,1), mask.reshape(-1,1))
     score = rejectOne_score(image_init, mask.reshape(-1, 1), prediction.reshape(-1,1), visualization=False, min_area=1, show_diffusion = True)
     acc_mrf = accuracy_score(img_mrf.reshape(-1, 1), mask.reshape(-1, 1))
