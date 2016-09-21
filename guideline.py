@@ -1,6 +1,7 @@
 #----------------------Building training set----------------------------#
 
 data_path = '/Users/viherm/Desktop/CARS'
+
 trainset_path = '/Users/viherm/Desktop/training_set'
 
 from AxonSeg.learning.data_construction import build_data

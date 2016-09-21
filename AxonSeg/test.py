@@ -37,7 +37,7 @@ def test_learning():
     images_path_mrf = ['/Users/viherm/Desktop/CARS/data2', '/Users/viherm/Desktop/CARS/data5',  '/Users/viherm/Desktop/CARS/data7',  '/Users/viherm/Desktop/CARS/data3']
     learn_mrf(image_paths = images_path_mrf, model_path = model_path, mrf_path = mrf_path)
 
-test_learning()
+test_prediction()
 
 
 

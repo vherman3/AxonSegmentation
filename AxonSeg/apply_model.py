@@ -9,6 +9,7 @@ from scipy import io
 from scipy.misc import imread, imsave
 from skimage.transform import rescale
 from skimage import exposure
+from config import*
 
 
 def im2batch(path_image, size=256):
@@ -290,8 +291,9 @@ def myelin(path, pixel_size=0.3):
 
     print '\n\n ---START MYELIN DETECTION---'
     current_path = os.path.dirname(os.path.abspath(__file__))
+    print path_axonseg
     command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'"+current_path+"\');" \
-            "addpath(genpath(\'/Users/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
+            "addpath(genpath(\'"+path_axonseg+"/code\')); myelin(\'%s\');exit()\""%path
     os.system(command)
 
 
