@@ -2,7 +2,9 @@ import os
 import shutil
 from scipy.misc import imread, imsave
 from sklearn import preprocessing
+from skimage.transform import rescale
 import random
+from config import *
 
 
 def extract_patch(img, mask, size):
@@ -12,6 +14,7 @@ def extract_patch(img, mask, size):
     :param size: size of the patches to extract
     :return: a list of pairs [patch, ground_truth] with a very low overlapping.
     """
+
     h, w = img.shape
 
     q_h, r_h = divmod(h, size)
@@ -59,17 +62,24 @@ def build_data(path_data, trainingset_path, trainRatio = 0.80):
     i = 0
     for root in os.listdir(path_data)[1:]:
         subpath_data = os.path.join(path_data, root)
+
+        file = open(subpath_data+'/pixel_size_in_micrometer.txt', 'r')
+        pixel_size = float(file.read())
+        rescale_coeff = pixel_size/general_pixel_size
+
         for data in os.listdir(subpath_data):
             if 'image' in data:
                 img = imread(os.path.join(subpath_data, data), flatten=False, mode='L')
+                img = (rescale(img, rescale_coeff)*256).astype(int)
             elif 'mask' in data:
-                mask = preprocessing.binarize(imread(os.path.join(subpath_data, data), flatten=False, mode='L'), threshold=125)
+                mask_init = imread(os.path.join(subpath_data, data), flatten=False, mode='L')
+                mask_rescaled = (rescale(mask_init, rescale_coeff)*256).astype(int)
+                mask = preprocessing.binarize(mask_rescaled, threshold=125)
+
         if i ==0:
             patches = extract_patch(img, mask, 256)
-            print len(patches)
         else:
             patches += extract_patch(img, mask, 256)
-            print len(patches)
         i+=1
 
     testRatio = 1-trainRatio

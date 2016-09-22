@@ -8,7 +8,7 @@ import copy
 import os
 import pickle
 from tabulate import tabulate
-
+from config import*
 
 def mrf_map(X, Y, mu, sigma, nb_class, max_map_iter, alpha, beta):
     """
@@ -153,10 +153,11 @@ def learn_mrf(image_paths, model_path, mrf_path):
 
     """
 
-
     from apply_model import apply_convnet
     from sklearn import preprocessing
+    from skimage.transform import rescale
     from scipy.misc import imread
+
 
     nb_class = 2
     max_map_iter = 10
@@ -176,12 +177,18 @@ def learn_mrf(image_paths, model_path, mrf_path):
     label_fields = []
     labels_true = []
     for image_path in image_paths :
+
         path_img = image_path+'/image.jpg'
         path_mask = image_path+'/mask.jpg'
 
-        images_init.append(imread(path_img, flatten=False, mode='L'))
+        file = open(image_path+'/pixel_size_in_micrometer.txt', 'r')
+        pixel_size = float(file.read())
+        rescale_coeff = pixel_size/general_pixel_size
 
-        mask = preprocessing.binarize(imread(path_mask, flatten=False, mode='L'), threshold=125)
+        images_init.append((rescale(imread(path_img, flatten=False, mode='L'), rescale_coeff)*256).astype(int))
+
+        mask = preprocessing.binarize((rescale(imread(path_mask, flatten=False, mode='L'))*256).astype(int), threshold=125)
+
         labels_true.append(mask.reshape(-1,1))
 
         prediction = apply_convnet(image_path, model_path)
@@ -196,24 +203,54 @@ def learn_mrf(image_paths, model_path, mrf_path):
     with open(folder_mrf+'/mrf_parameter.pkl', 'wb') as handle:
          pickle.dump(mrf_coef, handle)
 
+
+    acc_list = []
+    acc_mrf_list = []
+
+    score_0_list = []
+    score_1_list = []
+    score_2_list = []
+
+    score_0_mrf_list = []
+    score_1_mrf_list = []
+    score_2_mrf_list = []
+
     for label_field, image_init, label_true,image_path in zip(label_fields, images_init, labels_true, image_paths):
         img_mrf = run_mrf(label_field, image_init, nb_class, max_map_iter, weight)
         img_mrf = img_mrf == 1
 
     #-----Results------
 
-        print '\n\n---Scores MRF on the image : %s'%(image_path)
-        acc = accuracy_score(label_field, label_true)
+        acc_list.append(accuracy_score(label_field, label_true))
+        acc_mrf_list.append(accuracy_score(img_mrf.reshape(-1, 1), label_true))
+
         score = rejectOne_score(image_init, label_true, label_field, visualization=False, min_area=1, show_diffusion = True)
-        acc_mrf = accuracy_score(img_mrf.reshape(-1, 1), label_true)
+        score_0_list.append((score)[0])
+        score_1_list.append(score[1])
+        score_2_list.append(score[2])
+
         score_mrf = rejectOne_score(image_init, label_true, img_mrf.reshape(-1,1), visualization=False, min_area=1, show_diffusion = True)
+        score_0_mrf_list.append(score_mrf[0])
+        score_1_mrf_list.append(score_mrf[1])
+        score_2_mrf_list.append(score_mrf[2])
 
-        headers = ["MRF", "accuracy", "sensitivity", "errors", "diffusion"]
-        table = [["False", acc, score[0], score[1], score[2]],
-        ["True", acc_mrf, score_mrf[0], score_mrf[1], score_mrf[2]]]
 
-        scores = tabulate(table, headers)
-        print scores
+    subtitle_1 = '\n\n\n---Parameters---\n'
+    parameters= '\n threshold_learning :%s'%(threshold_learning)
+    parameters+= '\n threshold_error :%s'%(threshold_error)
+    parameters+= '\n threshold_error :%s'%(threshold_sensitivity)
+
+    subtitle_2 = '\n\n\n---Average scores on the training images : ' + str(image_paths) + '\n\n'
+    headers = ["MRF", "accuracy", "sensitivity", "errors", "diffusion"]
+    table = [["False", np.mean(acc_list), np.mean(score_0_list), np.mean(score_1_list),  np.mean(score_2_list)],
+    ["True", np.mean(acc_mrf_list), np.mean(score_0_mrf_list), np.mean(score_1_mrf_list), np.mean(score_2_mrf_list)]]
+
+    scores = tabulate(table, headers)
+    Report = subtitle_1 + parameters + subtitle_2 + scores
+
+    file = open(folder_mrf+"/report_mrf.txt", 'w')
+    file.write(Report)
+    file.close()
 
 
 
