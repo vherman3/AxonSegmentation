@@ -252,7 +252,7 @@ def axon_segmentation(image_path, model_path, mrf_path):
             pickle.dump(results, handle)
 
     io.savemat(image_path+'/AxonMask.mat', mdict={'prediction': img_mrf})
-    imsave(image_path+'/AxonSeg.jpeg', img_mrf, 'jpeg')
+    imsave(image_path+'/AxonDeepSeg.jpeg', img_mrf, 'jpeg')
 
 #---------------------------------------------------------------------------------------------------------
 
@@ -261,7 +261,7 @@ def myelin(path, pixel_size=0.3):
     print '\n\n ---START MYELIN DETECTION---'
     current_path = os.path.dirname(os.path.abspath(__file__))
     command = "/Applications/MATLAB_R2014a.app/bin/matlab -nodisplay -nosplash -r \"addpath(\'"+current_path+"\');" \
-            "addpath(genpath(\'/AxonSeg/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
+            "addpath(genpath(\'/AxonDeepSeg/viherm/axon_segmentation/code\')); myelin(\'%s\');exit()\""%path
     os.system(command)
 
 

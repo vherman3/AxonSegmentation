@@ -187,7 +187,7 @@ def learn_mrf(image_paths, model_path, mrf_path):
 
         images_init.append((rescale(imread(path_img, flatten=False, mode='L'), rescale_coeff)*256).astype(int))
 
-        mask = preprocessing.binarize((rescale(imread(path_mask, flatten=False, mode='L'))*256).astype(int), threshold=125)
+        mask = preprocessing.binarize((rescale(imread(path_mask, flatten=False, mode='L'),rescale_coeff)*256).astype(int), threshold=125)
 
         labels_true.append(mask.reshape(-1,1))
 
@@ -247,6 +247,8 @@ def learn_mrf(image_paths, model_path, mrf_path):
 
     scores = tabulate(table, headers)
     Report = subtitle_1 + parameters + subtitle_2 + scores
+
+    print Report
 
     file = open(folder_mrf+"/report_mrf.txt", 'w')
     file.write(Report)

@@ -88,4 +88,4 @@ def visualize_results(path) :
 
     plt.show()
 
-#visualize_results(path='/AxonSeg/viherm/Desktop/CARS/data6/')
+#visualize_results(path='/AxonDeepSeg/viherm/Desktop/CARS/data6/')

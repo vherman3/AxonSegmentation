@@ -5,9 +5,11 @@ import os
 import pickle
 import time
 from learning.input_data import input_data
+import sys
 
-
-def learn_model(trainingset_path, model_path, model_restored_path = None, learning_rate = 0.0005, verbose = 1):
+def learn_model(trainingset_path, model_path, model_restored_path = None, learning_rate = None, verbose = 1):
+    if not learning_rate :
+        learning_rate = 0.0005
 
     # Divers variables
     Loss = []
@@ -273,3 +275,24 @@ def learn_model(trainingset_path, model_path, model_restored_path = None, learni
 
         print("Model saved in file: %s" % save_path)
         print "Optimization Finished!"
+
+
+if __name__ == "__main__":
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-p", "--path_training", required=True, help="")
+    ap.add_argument("-m", "--path_model", required=True, help="")
+    ap.add_argument("-m_init", "--path_model_init", required=False, help="")
+    ap.add_argument("-lr", "--learning_rate", required=False, help="")
+
+    args = vars(ap.parse_args())
+    path_training = args["--path_training"]
+    path_model = args["--path_model"]
+    if "--path_model_init" in args:
+        path_model_init = args["--path_model_init"]
+    else : path_model_init = None
+    if "--learning_rate" in args:
+        learning_rate = float(args["--learning_rate"])
+    else : learning_rate = None
+
+    learn_model(path_training, path_model, path_model_init, learning_rate)
