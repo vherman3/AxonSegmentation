@@ -8,7 +8,7 @@ import os
 def test_prediction():
 
 
-    #build_data('/Users/viherm/Desktop/CARS','/viherm/Desktop/Train', trainRatio = 0.80)
+    build_data('/Users/viherm/Desktop/CARS','/viherm/Desktop/Train', trainRatio = 0.80)
 
     model_path = '/Users/viherm/Desktop/AxonSegmentation/AxonDeepSeg/data/models/model_parameters2'
     model_restored_path = '/Users/viherm/Desktop/AxonSegmentation/AxonDeepSeg/data/models/model_parameters1'
@@ -39,13 +39,21 @@ def test_learning():
     learn_mrf(image_paths = images_path_mrf, model_path = model_path, mrf_path = mrf_path)
 
 
+test_prediction()
 
-
-
-
-
-
-
+# from learning.input_data import random_rotation
+# from skimage.transform import rotate
+# from scipy.misc import imread
+# import matplotlib.pyplot as plt
+# image = imread('/Users/viherm/Desktop/CARS/data2/image.jpg', flatten=False, mode='L')
+# patch = [image, image]
+# patch_rotated = random_rotation(patch)
+# image_rotated = patch_rotated[0]
+# plt.figure(1)
+# plt.title('With MRF')
+# plt.imshow(image_rotated, cmap=plt.get_cmap('gray'))
+# plt.show()
+#
 
 
 

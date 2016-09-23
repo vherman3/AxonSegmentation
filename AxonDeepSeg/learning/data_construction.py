@@ -5,6 +5,7 @@ from sklearn import preprocessing
 from skimage.transform import rescale
 import random
 from config import *
+print general_pixel_size
 
 
 def extract_patch(img, mask, size):

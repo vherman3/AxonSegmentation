@@ -1,4 +1,4 @@
-# AxonSegmentation 
+# AxonSegmentation
 
 Axon segmentation with microscopic images and based on deep convolutional neural networks.
 The U-Net ([from Ronneberger et al.](https://arxiv.org/abs/1505.04597)) is used as a classification model.
@@ -7,6 +7,6 @@ The resulting axon segmentation mask feeds a myelin detector ([Zaimi et al.](htt
 
 <img src="https://github.com/vherman3/AxonSegmentation/blob/master/schema.png" width="600px" align="middle" />
 
-#Functionnality
-*[Guideline presentation](https://docs.google.com/presentation/d/1gtp8UiqJJF7pRaBctTryoGQPACMeu29DhCMYn6k6PXQ/edit?usp=sharing)
-*[Guideline to run](https://github.com/vherman3/AxonSegmentation/blob/master/guideline.py)
+# Functionnality #
+* [Guideline presentation](https://docs.google.com/presentation/d/1gtp8UiqJJF7pRaBctTryoGQPACMeu29DhCMYn6k6PXQ/edit?usp=sharing)
+* [Guideline to run](https://github.com/vherman3/AxonSegmentation/blob/master/guideline.py)
