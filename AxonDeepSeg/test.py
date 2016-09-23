@@ -38,19 +38,6 @@ def test_learning():
     images_path_mrf = ['/Users/viherm/Desktop/CARS/data2', '/Users/viherm/Desktop/CARS/data5']
     learn_mrf(image_paths = images_path_mrf, model_path = model_path, mrf_path = mrf_path)
 
-#test_learning()
-
-def fun(a,b,c=None,d=None):
-    if not c :
-        c = 3
-        print 'c=',c
-    if not d :
-        d = 4
-        print 'd=',d
-
-
-fun(1,2,d=4)
-
 
 
 

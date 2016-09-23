@@ -28,15 +28,14 @@ learn_model(path_training, path_model, learning_rate=0.005)
 #--------------------GPU on Bireli--------------------------------------------------------------------------------------
 
 #
-# $ scp  path_training  neuropoly\@bireli.neuro.polymtl.ca:AxonSegmentation
-# $ ssh neuropoly\@bireli.neuro.polymtl.ca:AxonSegmentation
+# $ scp  path_training  neuropoly\@bireli.neuro.polymtl.ca:AxonSegmentation/data
 # $ path_model=data/model/model_init
 # $ path_training=data/training_set
-# $ cd AxonDeepSeg
+# $ cd AxonSegmentation/AxonDeepSeg
 # $ python learn_model -p path_training -m path_model -lr 0.0005
 
 #- In a new window to visualize the train
-# $ scp neuropoly\@bireli.neuro.polymtl.ca:AxonSegmentation/data/model_init /Users/viherm/Desktop/data/models/model_init
+# $ scp neuropoly@bireli.neuro.polymtl.ca:AxonSegmentation/data/model_init /Users/viherm/Desktop/data/models/model_init
 
 #-----------------------Initialize the training-------------------------------------------------#
 learn_model(path_training, path_model_new, path_model, learning_rate=0.002)
