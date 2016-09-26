@@ -24,9 +24,16 @@ build_data(path_data, path_training, trainRatio=0.80)
 from AxonDeepSeg.learn_model import learn_model
 learn_model(path_training, path_model, learning_rate=0.005)
 
+#-----------------------Initialize the training-------------------------------------------------#
+learn_model(path_training, path_model_new, path_model, learning_rate=0.002)
+
+#----------------------Visualization of the training---------------------#
+from AxonDeepSeg.evaluation.visualization import visualize_learning
+visualize_learning(path_model)
+
 #--------------------Training on (GPU Bireli)---------------------------------------------------#
 
-#
+# ---- In a terminal window ------
 # $ scp  path_training  neuropoly@bireli.neuro.polymtl.ca:my_project
 # $ scp path_model neuropoly@bireli.neuro.polymtl.ca:my_project
 # $ cd AxonSegmentation/AxonDeepSeg
@@ -34,15 +41,9 @@ learn_model(path_training, path_model, learning_rate=0.005)
 # or
 # $ python learn_model.py -p path_bireli_training -m path_bireli_model_new -m_init path_bireli_model_init  -lr 0.0005
 
-#- In a new window to visualize the train
+#- In a new window to visualize the training performances
 # $ scp -r  path_bireli_model_new path_model_new
 
-#-----------------------Initialize the training-------------------------------------------------#
-learn_model(path_training, path_model_new, path_model, learning_rate=0.002)
-
-#----------------------Visualization of the training---------------------#
-from AxonDeepSeg.evaluation.visualization import visualize_learning
-visualize_learning(path_model)
 
 # #----------------------Training the MRF from the paths_training---------------------#
 from AxonDeepSeg.mrf import learn_mrf
