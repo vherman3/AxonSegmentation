@@ -7,6 +7,6 @@ The resulting axon segmentation mask feeds a myelin detector ([Zaimi et al.](htt
 
 <img src="https://github.com/vherman3/AxonSegmentation/blob/master/schema.png" width="600px" align="middle" />
 
-# Functionnality #
+# Guideline #
 * [Guideline presentation](https://docs.google.com/presentation/d/1gtp8UiqJJF7pRaBctTryoGQPACMeu29DhCMYn6k6PXQ/edit?usp=sharing)
 * [Guideline to run](https://github.com/vherman3/AxonSegmentation/blob/master/guideline.py)
