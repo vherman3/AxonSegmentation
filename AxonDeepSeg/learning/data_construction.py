@@ -5,8 +5,6 @@ from sklearn import preprocessing
 from skimage.transform import rescale
 import random
 from config import *
-print general_pixel_size
-
 
 def extract_patch(img, mask, size):
     """
@@ -89,6 +87,7 @@ def build_data(path_data, trainingset_path, trainRatio = 0.80):
     random.shuffle(patches)
     patches_train = patches[:-size_test]
     patches_test = patches[-size_test:]
+
 
     if not os.path.exists(trainingset_path):
         os.makedirs(trainingset_path)

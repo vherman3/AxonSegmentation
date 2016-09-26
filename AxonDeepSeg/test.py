@@ -7,8 +7,7 @@ import os
 
 def test_prediction():
 
-
-    build_data('/Users/viherm/Desktop/CARS','/viherm/Desktop/Train', trainRatio = 0.80)
+    build_data('/Users/viherm/Desktop/CARS','/Users/viherm/Desktop/training_set', trainRatio=0.80)
 
     model_path = '/Users/viherm/Desktop/AxonSegmentation/AxonDeepSeg/data/models/model_parameters2'
     model_restored_path = '/Users/viherm/Desktop/AxonSegmentation/AxonDeepSeg/data/models/model_parameters1'
@@ -18,8 +17,8 @@ def test_prediction():
 
     image_path = '/Users/viherm/Desktop/CARS/data%s'%6
 
-    pipeline(image_path, model_path, mrf_path)
-    visualize_results(image_path)
+    #pipeline(image_path, model_path, mrf_path)
+    #visualize_results(image_path)
 
 
 def test_learning():

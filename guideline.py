@@ -15,7 +15,6 @@ path_mrf = '/Users/viherm/Desktop/data/models/mrf'
 # input to segment an image
 path_my_data = '/Users/viherm/Desktop/data2segment/mydata'
 
-
 #-----------------------------------------------------------------------------------------------#
 from AxonDeepSeg.learning.data_construction import build_data
 build_data(path_data, path_training, trainRatio=0.80)
@@ -25,17 +24,18 @@ build_data(path_data, path_training, trainRatio=0.80)
 from AxonDeepSeg.learn_model import learn_model
 learn_model(path_training, path_model, learning_rate=0.005)
 
-#--------------------GPU on Bireli--------------------------------------------------------------------------------------
+#--------------------Training on (GPU Bireli)---------------------------------------------------#
 
 #
-# $ scp  path_training  neuropoly\@bireli.neuro.polymtl.ca:AxonSegmentation/data
-# $ path_model=data/model/model_init
-# $ path_training=data/training_set
+# $ scp  path_training  neuropoly@bireli.neuro.polymtl.ca:my_project
+# $ scp path_model neuropoly@bireli.neuro.polymtl.ca:my_project
 # $ cd AxonSegmentation/AxonDeepSeg
-# $ python learn_model -p path_training -m path_model -lr 0.0005
+# $ python learn_model.py -p path_bireli_training -m path_bireli_model_new -lr 0.0005
+# or
+# $ python learn_model.py -p path_bireli_training -m path_bireli_model_new -m_init path_bireli_model_init  -lr 0.0005
 
 #- In a new window to visualize the train
-# $ scp neuropoly@bireli.neuro.polymtl.ca:AxonSegmentation/data/model_init /Users/viherm/Desktop/data/models/model_init
+# $ scp -r  path_bireli_model_new path_model_new
 
 #-----------------------Initialize the training-------------------------------------------------#
 learn_model(path_training, path_model_new, path_model, learning_rate=0.002)
@@ -59,7 +59,6 @@ myelin(path_my_data)
 #----------------------Axon and Myelin segmentation--------------------#
 from AxonDeepSeg.apply_model import pipeline
 pipeline(path_my_data,path_model,path_mrf)
-
 
 #----------------------Visualization of the results--------------------#
 from AxonDeepSeg.evaluation.visualization import visualize_results

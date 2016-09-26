@@ -11,6 +11,7 @@ def learn_model(trainingset_path, model_path, model_restored_path = None, learni
     if not learning_rate :
         learning_rate = 0.0005
 
+
     # Divers variables
     Loss = []
     Epoch = []
@@ -38,6 +39,7 @@ def learn_model(trainingset_path, model_path, model_restored_path = None, learni
 
     hyperparameters = {'depth': depth,'dropout': dropout, 'image_size': image_size,
                        'model_restored_path': model_restored_path, 'restore': restore}
+
     with open(folder_model+'/hyperparameters.pkl', 'wb') as handle :
             pickle.dump(hyperparameters, handle)
 
@@ -286,13 +288,13 @@ if __name__ == "__main__":
     ap.add_argument("-lr", "--learning_rate", required=False, help="")
 
     args = vars(ap.parse_args())
-    path_training = args["--path_training"]
-    path_model = args["--path_model"]
-    if "--path_model_init" in args:
-        path_model_init = args["--path_model_init"]
-    else : path_model_init = None
-    if "--learning_rate" in args:
-        learning_rate = float(args["--learning_rate"])
+    path_training = args["path_training"]
+    path_model = args["path_model"]
+    path_model_init = args["path_model_init"]
+    learning_rate = args["learning_rate"]
+    if learning_rate :
+        learning_rate = float(args["learning_rate"])
+
     else : learning_rate = None
 
     learn_model(path_training, path_model, path_model_init, learning_rate)
